@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercadia.Stores", "Mercadia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercadia.Management", "Mercadia.Management\Mercadia.Management.csproj", "{EDCBF3BD-6C83-4C70-B965-FA47A2C862A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mercadia.Infrastructure", "Mercadia.Infrastructure\Mercadia.Infrastructure.csproj", "{86043E6E-C59F-44D0-9251-D3CCA3236DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EDCBF3BD-6C83-4C70-B965-FA47A2C862A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDCBF3BD-6C83-4C70-B965-FA47A2C862A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDCBF3BD-6C83-4C70-B965-FA47A2C862A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86043E6E-C59F-44D0-9251-D3CCA3236DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86043E6E-C59F-44D0-9251-D3CCA3236DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86043E6E-C59F-44D0-9251-D3CCA3236DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86043E6E-C59F-44D0-9251-D3CCA3236DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
