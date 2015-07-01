@@ -30,3 +30,4 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Antlr3.Runti
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.csprojResolveAssemblyReference.cache
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mvc.Mailer.dll

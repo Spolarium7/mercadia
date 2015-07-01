@@ -23,3 +23,4 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Management\bin\Antlr
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Management\bin\Newtonsoft.Json.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Management\obj\Debug\Mercadia.Management.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Management\obj\Debug\Mercadia.Management.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Management\obj\Debug\Mercadia.Management.csprojResolveAssemblyReference.cache

@@ -10,6 +10,7 @@ namespace Mercadia.Management.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
