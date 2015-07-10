@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mercadia.Infrastructure
 {
-    public class Class1
+    public class User
     {
     }
 }

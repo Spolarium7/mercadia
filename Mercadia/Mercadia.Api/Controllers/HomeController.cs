@@ -14,7 +14,7 @@ namespace Mercadia.Api.Controllers
         {
             /* Send Email */
             new UserMailer()
-                .Welcome(name: string.Format("{0} {1}", "Goshen", "Jimenez"), email: "goshenjimenez@gmail.com", verificationCode: "abcdef")
+                .Welcome(name: string.Format("{0} {1}", "Ponce", "Omar"), email: "ponceomar.20@gmail.com", verificationCode: "xxxxx")
                 .SendNow();
 
             return View();
