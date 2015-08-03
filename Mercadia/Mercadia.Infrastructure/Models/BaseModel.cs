@@ -11,12 +11,14 @@ namespace Mercadia.Infrastructure.Models
         public BaseModel()
         {
             this.Timestamp = DateTime.Now;
+            this.Status = Status.Inactive;
             this.Id = Guid.NewGuid();
         }
-
 
         public Guid Id { get; set; }
 
         public DateTime Timestamp { get; set; }
+
+        public Status Status {get; set; }
     }
 }

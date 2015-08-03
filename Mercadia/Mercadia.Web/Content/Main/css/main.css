@@ -80,3 +80,12 @@ img.pull-left { margin-right: 10px; }
 
 	.widget-simplenav { margin-left:-5px; }		
 	.widget-simplenav a{ margin:0 5px; }		
+
+.dv-landing-banner .carousel { width:65%;}
+.dv-landing-banner .carousel-indicators { bottom:-50px;}
+.dv-landing-banner .carousel-indicators li { bottom:-50px; border-color:#555 !important;}
+.dv-landing-banner .carousel-indicators li.active { background:#777 !important;}
+.dv-landing-banner .carousel .item h4 { color:#333; font-weight:600;}
+.dv-landing-banner .carousel .item h1 { margin:40px 0; font-weight:300;}
+.dv-landing-banner .carousel .item h1 span { display:block; font-size:80px; text-align:center;}
+.dv-landing-banner .carousel .item p { font-size:16px; font-weight:300; line-height:150%; text-align:justify;}

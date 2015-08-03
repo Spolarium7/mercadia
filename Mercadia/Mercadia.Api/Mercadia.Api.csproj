@@ -39,6 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mvc.Mailer">
       <HintPath>..\packages\MvcMailer.4.5\lib\45\Mvc.Mailer.dll</HintPath>
@@ -116,8 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -160,29 +165,30 @@
     </Compile>
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\MercadiaDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\fontawesome\fontawesome.css" />
-    <Content Include="Content\css\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\css\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\css\fonts\NixieOne-Regular.svg" />
-    <Content Include="Content\css\fonts\OpenSans-Bold.svg" />
-    <Content Include="Content\css\fonts\OpenSans-Light.svg" />
-    <Content Include="Content\css\fonts\OpenSans-Reg.svg" />
-    <Content Include="Content\css\fonts\OpenSans-Semibold.svg" />
-    <Content Include="Content\css\theme\bootstrap.css" />
-    <Content Include="Content\css\theme\custom.css" />
-    <Content Include="Content\css\theme\usebootstrap.css" />
-    <Content Include="Content\js\bootstrap\bootstrap.min.js" />
-    <Content Include="Content\js\bootstrap\html5shiv.js" />
-    <Content Include="Content\js\bootstrap\respond.min.js" />
-    <Content Include="Content\js\bootstrap\usebootstrap.js" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\1.jpg" />
+    <Content Include="Content\images\2.jpg" />
+    <Content Include="Content\images\bg_header.jpg" />
+    <Content Include="Content\images\gt_favicon.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\mac.jpg" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\google-map.js" />
+    <Content Include="Content\js\headroom.min.js" />
+    <Content Include="Content\js\html5shiv.js" />
+    <Content Include="Content\js\jQuery.headroom.min.js" />
     <Content Include="Content\js\jquery.js" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\js\respond.min.js" />
+    <Content Include="Content\js\template.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -221,58 +227,21 @@
     <Content Include="Views\UserMailer\Welcome.cshtml" />
     <Content Include="Views\UserMailer\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mercadia.Infrastructure\Mercadia.Infrastructure.csproj">
+      <Project>{86043e6e-c59f-44d0-9251-d3cca3236dbe}</Project>
+      <Name>Mercadia.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Content\css\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\css\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\css\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\css\fonts\FontAwesome.otf" />
-    <Content Include="Content\css\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\css\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\css\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\css\fonts\NixieOne-Regular.eot" />
-    <Content Include="Content\css\fonts\NixieOne-Regular.ttf" />
-    <Content Include="Content\css\fonts\NixieOne-Regular.woff" />
-    <Content Include="Content\css\fonts\OpenSans-Bold.eot" />
-    <Content Include="Content\css\fonts\OpenSans-Bold.ttf" />
-    <Content Include="Content\css\fonts\OpenSans-Bold.woff" />
-    <Content Include="Content\css\fonts\OpenSans-Light.eot" />
-    <Content Include="Content\css\fonts\OpenSans-Light.ttf" />
-    <Content Include="Content\css\fonts\OpenSans-Light.woff" />
-    <Content Include="Content\css\fonts\OpenSans-Reg.eot" />
-    <Content Include="Content\css\fonts\OpenSans-Reg.ttf" />
-    <Content Include="Content\css\fonts\OpenSans-Reg.woff" />
-    <Content Include="Content\css\fonts\OpenSans-Semibold.eot" />
-    <Content Include="Content\css\fonts\OpenSans-Semibold.ttf" />
-    <Content Include="Content\css\fonts\OpenSans-Semibold.woff" />
-    <Content Include="Content\imports\importfile_17d78ced-b7da-4ce5-ac77-f7f4f345d9d7..xlsx" />
-    <Content Include="Content\imports\importfile_1e64090e-7e0d-49f2-8ff4-6f0e847c5f11..xlsx" />
-    <Content Include="Content\imports\importfile_1edf7393-4ad8-4417-8125-db0edd7d9979..xlsx" />
-    <Content Include="Content\imports\importfile_22158163-1487-48d8-b3f2-9a6ff2a27a58..xlsx" />
-    <Content Include="Content\imports\importfile_346b69aa-e975-4c42-97ca-dffab2b96972..xlsx" />
-    <Content Include="Content\imports\importfile_3564aebb-8168-4961-b98d-bff18d43f698..xlsx" />
-    <Content Include="Content\imports\importfile_4792eec3-3d00-4bc1-a405-c683fb20b1cf..xlsx" />
-    <Content Include="Content\imports\importfile_51293c04-e5b9-45cd-9f3e-9099248cfb87..xlsx" />
-    <Content Include="Content\imports\importfile_6d53b6e6-0e1f-45fd-81a6-65130c4a22fd..xlsx" />
-    <Content Include="Content\imports\importfile_85e4c4cc-84fc-4cfc-979b-6491059da11f..xlsx" />
-    <Content Include="Content\imports\importfile_976c7b1a-71d9-41a3-a002-1ea4edda89f8..xlsx" />
-    <Content Include="Content\imports\importfile_99bb7e87-ad9a-44da-a735-ebd115a4156c..xlsx" />
-    <Content Include="Content\imports\importfile_9e88937c-44f2-460f-9f9d-504301f23206..xlsx" />
-    <Content Include="Content\imports\importfile_ad770d8d-bb57-4830-9842-e7d2a7bcbb72..xlsx" />
-    <Content Include="Content\imports\importfile_bbd66845-f97a-454f-90ee-a452315c4220..xlsx" />
-    <Content Include="Content\imports\importfile_c8890d3f-e610-4453-950f-0c7de552ab3b..xlsx" />
-    <Content Include="Content\imports\importfile_c9636d8a-7b65-4f83-b19e-cae59e4e4c64..xlsx" />
-    <Content Include="Content\imports\importfile_cc0e0bc5-52fa-497e-a2c4-4793805f86c0..xlsx" />
-    <Content Include="Content\imports\importfile_d3958142-a395-409a-9aa1-5c167026e285..xlsx" />
-    <Content Include="Content\imports\importfile_dbbe6f7f-fbbf-4583-add2-9d3c16c900c6..xlsx" />
-    <Content Include="Content\imports\importfile_f3181630-3ac9-4150-8255-680c87e2d36f..xlsx" />
-    <Content Include="Content\imports\importfile_fa52b949-0073-466d-8076-3d43df293316..xlsx" />
-    <Content Include="Content\imports\importfile_fd931e8c-24be-40d2-8844-b7e9c8683df3..xlsx" />
-    <Content Include="Content\imports\importfile_feca617e-7f91-4731-afdd-9a038fff59d7..xlsx" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <PropertyGroup>
