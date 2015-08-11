@@ -40,5 +40,3 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.p
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.SqlServer.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.SqlServer.xml
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.Migrations.Initial.resources
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.csproj.GenerateResource.Cache

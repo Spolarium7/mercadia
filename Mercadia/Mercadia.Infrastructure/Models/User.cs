@@ -28,7 +28,8 @@ namespace Mercadia.Infrastructure.Models
         }
 
         public Guid Id { get; set; }
-
+        public string VerificationCode { get; set; }
+        public Boolean PasswordIsGenerated { get; set; }
         public DateTime Timestamp { get; set; }
         public UserStatus Status { get; set; }
     }

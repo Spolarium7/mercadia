@@ -13,6 +13,8 @@ using Mercadia.Infrastructure.Models;
 using Mercadia.Infrastructure.Enums;
 using Mercadia.Infrastructure.DTO;
 using Mercadia.Infrastructure.DTO.Users;
+using Mercadia.Api.Mailers;
+using Mercadia.Api.Helpers;
 
 namespace Mercadia.Api.Controllers
 {
@@ -62,9 +64,36 @@ namespace Mercadia.Api.Controllers
         }
 
         [HttpPost]
-        public Guid Post(UserRequestDto request)
+        public string Post(UserRequestDto request)
         {
-            
+            if (db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).Count() != 0)
+            {
+                ModelState.AddModelError("Duplicate Error", "Email is already in use.");
+                return null;
+            };
+
+            string verifyCode = System.Web.Security.Membership.GeneratePassword(6, 2);
+            string password = System.Web.Security.Membership.GeneratePassword(8, 3);
+
+            User user = new User();
+            user.ClearTextPassword = password;
+            user.Email = request.Email.ToLower();
+            user.DeliveryAddress = request.DeliveryAddress;
+            user.DeliveryCountry = request.DeliveryCountry;
+            user.DeliveryState = request.DeliveryState;
+            user.FirstName = request.FirstName;
+            user.LastName = request.LastName;
+            user.Phone = request.Phone;
+            user.Status = UserStatus.Unverified;
+            user.VerificationCode = verifyCode;
+            user.PasswordIsGenerated = true;
+            db.Users.Add(user);
+
+            new UserMailer()
+                .Welcome(name: string.Format("{0} {1}", user.LastName, user.FirstName), email: user.Email, verificationCode: verifyCode)
+                .SendNow();
+
+            return user.Id.ToString();
         }
     }
 }

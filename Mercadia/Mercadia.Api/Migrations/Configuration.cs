@@ -10,7 +10,7 @@ namespace Mercadia.Api.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Mercadia.Api.Models.MercadiaDbContext context)

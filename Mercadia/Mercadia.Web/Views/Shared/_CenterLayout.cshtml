@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
+
+    <title>Mercadia</title>
+
+    <link rel="shortcut icon" href="~/content/main/images/gt_favicon.png">
+
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="~/content/main/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/content/main/css/font-awesome.min.css">
+
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="~/content/main/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="~/content/main/css/main.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="#"><img src="~/content/main/images/logosm.jpg" alt="MERCADIA : Online Store Platform"></a>
+            </div>
+            @{
+                Html.RenderAction("_Menu", "Menu", new { Area = "" });
+            }
+        </div>
+    </div>
+    <!-- /.navbar -->
+
+    <header id="head" class="secondary"></header>
+
+    <!-- container -->
+    <div class="container">
+        @RenderSection("breadcrumbs", false)
+        @*<ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Left Sidebar</li>
+            </ol>*@
+
+        <div class="row">
+
+            <article class="col-xs-12 maincontent">
+                @RenderBody()
+            </article>
+        </div>
+    </div>	<!-- /container -->
+
+
+    <footer id="footer" class="top-space">
+
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Contact</h3>
+                        <div class="widget-body">
+                            <img src="~/content/main/images/logolg.png" alt="MERCADIA : Online Store Platform" style="width:75px;height:75px;">
+                            <p>
+                                +63 927 241 6010<br>
+                                <a href="mailto:#">gjimenez@mercadia.com</a><br>
+                                <br>
+                                ANGELES UNIVERSITY FOUNDATION
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Sign Up using</h3>
+                        <div class="widget-body">
+                            <p class="follow-me-icons">
+                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <h3 class="widget-title" id="about">About Mercadia</h3>
+                        <div class="widget-body">
+                            <p>This is a school requirement for E-Commerce Technologies in Angeles University Foundation MIT Class of 2015-2016. Under the tutelage of Dr. Gilbert Tumibay, four students: Goshen Jimenez, Deepika, Jerreck Navalta and Eugene Perez sought to create a flexible and easy to setup e-commerce platform for usage of different small online businesses.</p>
+                            <p>We designed Mercadia to be a platform for E-Commerce and will be able to cater small businesses thriving in the web. It connects people to businesses and aims to reach more people via social media integration. </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="#top">Top</a> |
+                                <b><a href="signup.html">Sign up</a></b>
+                                | Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                Copyright &copy; 2014, Goshen Jimenez | Jerreck Navalta | Deepika | Eugene Perez
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="~/content/main/js/jquery.js"></script>
+    <script src="~/content/main/js/bootstrap.min.js"></script>
+    <script src="~/content/main/js/headroom.min.js"></script>
+    <script src="~/content/main/js/jQuery.headroom.min.js"></script>
+    <script src="~/content/main/js/template.js"></script>
+
+</body>
+</html>

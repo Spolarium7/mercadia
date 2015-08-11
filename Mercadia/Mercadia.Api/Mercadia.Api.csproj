@@ -166,10 +166,6 @@
     </Compile>
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
-    <Compile Include="Migrations\201508090605294_Initial.cs" />
-    <Compile Include="Migrations\201508090605294_Initial.Designer.cs">
-      <DependentUpon>201508090605294_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MercadiaDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -250,11 +246,6 @@
     <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Index2.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508090605294_Initial.resx">
-      <DependentUpon>201508090605294_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
