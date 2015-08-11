@@ -56,12 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\BaseDto.cs" />
+    <Compile Include="DTO\ChangeStatusDto.cs" />
+    <Compile Include="DTO\Users\UserRequestDto.cs" />
+    <Compile Include="DTO\Users\UserResponseDto.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\StoreSetting.cs" />
     <Compile Include="Models\User.cs" />

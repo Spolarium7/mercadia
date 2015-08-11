@@ -10,125 +10,61 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Mercadia.Api.Models;
 using Mercadia.Infrastructure.Models;
+using Mercadia.Infrastructure.Enums;
+using Mercadia.Infrastructure.DTO;
+using Mercadia.Infrastructure.DTO.Users;
 
 namespace Mercadia.Api.Controllers
 {
+
+    [RoutePrefix("api/users")]
     public class UsersController : ApiController
     {
         private MercadiaDbContext db = new MercadiaDbContext();
 
         // GET: api/Users
-        public IQueryable<User> GetUsers()
+
+        [HttpGet, Route("list")]
+        public List<UserResponseDto> List()
         {
-            return db.Users;
+            return db.Users.Select(a => new UserResponseDto() { 
+                Email = a.Email,
+                DeliveryAddress = a.DeliveryAddress,
+                DeliveryCountry = a.DeliveryCountry,
+                DeliveryState = a.DeliveryState,
+                FirstName = a.FirstName,
+                LastName =a.LastName,
+                Phone = a.Phone,
+                Id = a.Id,
+                Status = a.Status,
+                Timestamp = a.Timestamp
+            }).ToList();
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(User))]
-        public IHttpActionResult GetUser(Guid id)
+        [HttpGet, Route("email/{email}/")]
+        public UserResponseDto GetByEmail(string email)
         {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user);
-        }
-
-        // PUT: api/Users/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutUser(Guid id, User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
+            return db.Users
+                .Where(a => a.Email.ToLower() == email.ToLower())
+                .Select(a => new UserResponseDto()
                 {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+                    Email = a.Email,
+                    DeliveryAddress = a.DeliveryAddress,
+                    DeliveryCountry = a.DeliveryCountry,
+                    DeliveryState = a.DeliveryState,
+                    FirstName = a.FirstName,
+                    LastName = a.LastName,
+                    Phone = a.Phone,
+                    Id = a.Id,
+                    Status = a.Status,
+                    Timestamp = a.Timestamp
+                }).FirstOrDefault();
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(User))]
-        public IHttpActionResult PostUser(User user)
+        [HttpPost]
+        public Guid Post(UserRequestDto request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Users.Add(user);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (UserExists(user.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
-        }
-
-        // DELETE: api/Users/5
-        [ResponseType(typeof(User))]
-        public IHttpActionResult DeleteUser(Guid id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            db.Users.Remove(user);
-            db.SaveChanges();
-
-            return Ok(user);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool UserExists(Guid id)
-        {
-            return db.Users.Count(e => e.Id == id) > 0;
+            
         }
     }
 }

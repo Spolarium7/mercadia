@@ -24,3 +24,10 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Newtonsoft.J
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\obj\Debug\Mercadia.Web.csprojResolveAssemblyReference.cache
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\obj\Debug\Mercadia.Web.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\obj\Debug\Mercadia.Web.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Mercadia.Infrastructure.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\RestSharp.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\BCrypt.Net.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Mercadia.Infrastructure.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\RestSharp.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\BCrypt.Net.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\BCrypt.Net.xml

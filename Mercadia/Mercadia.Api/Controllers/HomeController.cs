@@ -19,5 +19,7 @@ namespace Mercadia.Api.Controllers
 
             return View();
         }
+
+
     }
 }

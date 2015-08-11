@@ -1,70 +1,255 @@
-﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿
+@{
+    Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
 
+    <title>Mercadia</title>
 
-<aside class="col-md-4 sidebar sidebar-left">
+    <link rel="shortcut icon" href="~/content/main/images/gt_favicon.png">
 
-    <div class="row widget">
-        <div class="col-xs-12">
-            <h4>Stores</h4>
-            <p>
-                Search for member stores. Our partner stores always have new items coming in regularly. Do checkout their
-                amazing promos and watch out for regular free gift items.
-            </p>
-        </div>
-    </div>
-    <div class="row widget">
-        <div class="col-xs-12">
-            <h4>Lorem ipsum dolor sit</h4>
-            <p><img src="~/content/main/images/1.jpg" alt=""></p>
-        </div>
-    </div>
-    <div class="row widget">
-        <div class="col-xs-12">
-            <h4>Lorem ipsum dolor sit</h4>
-            <p><img src="~/content/main/images/2.jpg" alt=""></p>
-            <p>Qui, debitis, ad, neque reprehenderit laborum soluta dolor voluptate eligendi enim consequuntur eveniet recusandae rerum? Atque eos corporis provident tenetur.</p>
-        </div>
-    </div>
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="~/content/main/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/content/main/css/font-awesome.min.css">
 
-</aside>
-<!-- /Sidebar -->
-<!-- Article main content -->
-<article class="col-md-8 maincontent">
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="~/content/main/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="~/content/main/css/main.css">
 
-    <h2 style="margin-left:15px;">Mercadia</h2>
-    <div class="dv-landing-banner">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="home">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom">
         <div class="container">
-            <div class="dv-landing-banner-img">
-                <span>This is an effort to bring local sellers into the open market of the internet</span>
+            <div class="navbar-header">
+                <!-- Button for smallest screens -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand" href="#"><img src="~/content/main/images/logosm.jpg" alt="MERCADIA : Online Store Platform"></a>
             </div>
-            <div id="carousel-landing" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-landing" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-landing" data-slide-to="1"></li>
-                    <li data-target="#carousel-landing" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <h4>Habitant dicta primis turpis.</h4>
-                        <h1><span class="glyphicon glyphicon-send"></span><br />Mollis, consequatur cras senectus, ullamcorper feugiat urna impedit.</h1>
-                        <p>Arcu dicta excepturi labore aptent, cursus, habitasse tempora, itaque? Repellendus earum proin cumque, tenetur? Nulla reprehenderit magni facilisis aliqua aute.</p>
-                    </div>
-                    <div class="item">
-                        <h4>Nam itaque, vitae mollit excepteur ligula nunc quasi, distinctio hac.</h4>
-                        <h1><span class="glyphicon glyphicon-time"></span><br />Incididunt hac, voluptates integer assumenda.</h1>
-                        <p>Adipisicing platea quibusdam quis conubia per, dui? Nostrud occaecati. Primis ullamcorper libero itaque, ut exercitation, sociis! Magni inceptos! Ex fusce? Incididunt rutrum, leo dignissimos suscipit.</p>
-                    </div>
-                    <div class="item">
-                        <h4>Adipisicing commodi aperiam cillum</h4>
-                        <h1><span class="glyphicon glyphicon-ok"></span><br />Sagittis rhoncus potenti eos</h1>
-                        <p>Repellat quos cras, porta ut erat eum exercitationem necessitatibus excepturi iusto, numquam doloremque ultrices lacus nihil? Nostrum necessitatibus! Explicabo maxime, qui. Mollit tenetur class, lacinia malesuada assumenda lobortis dis nisi suspendisse laudantium montes voluptatem debitis similique tenetur, nostrum minus, eum provident pulvinar tempore venenatis magnam velit distinctio dui, ea sint.</p>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stores <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sidebar-left.html">Left Sidebar</a></li>
+                            <li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- /.navbar -->
+    <!-- Header -->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead">MERCADIA</h1>
+                <p class="tagline">Online store platform</p>
+                <p><a class="btn btn-default btn-lg" role="button" href="#about">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">REGISTER NOW</a></p>
+            </div>
+        </div>
+    </header>
+    <!-- /Header -->
+    <!-- Intro -->
+    <div class="container text-center">
+        <br> <br>
+        <h2 class="thin">The best place to setup your online store</h2>
+        <p class="text-muted">
+            You are in good hands. With Mercadia, you can easily setup your online store and get in touch with more customers.
+        </p>
+    </div>
+    <!-- /Intro-->
+    <!-- Highlights - jumbotron -->
+    <div class="jumbotron top-space">
+        <div class="container">
+
+            <h3 class="text-center thin">Get your business rolling</h3>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-cogs fa-5"></i>Bootstrap-powered</h4></div>
+                    <div class="h-body text-center">
+                        <p>We have a set of different bootstrap templates you can choose for your ecommerce site. Each is stunning and crafted just for online business! </p>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Hassle Free</h4></div>
+                    <div class="h-body text-center">
+                        <p>This online platform can host and create your ecommerce website for you. All you have to do is create a store, and put your products online! </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>You'll love the reports</h4></div>
+                    <div class="h-body text-center">
+                        <p>Mercadia's reports will allow you to easily view your orders and evaluate your sales on daily, weekly and monthly basis.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 highlight">
+                    <div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Author's support</h4></div>
+                    <div class="h-body text-center">
+                        <p>Got a problem with your store? Shoot us an email and we sill surely get back to you. We are more than willing to help you setup and get your business going! We </p>
+                    </div>
+                </div>
+            </div> <!-- /row  -->
+
         </div>
     </div>
-</article>
+    <!-- /Highlights -->
+    <!-- container -->
+    <div class="container">
+
+        <h2 class="text-center top-space">Visit our stores</h2>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <img src="~/Content/Stores/Featured1/logo.jpg" alt="Bite Me" style="width:150px;height:150px;" />
+            </div>
+            <div class="col-sm-4">
+                <h3>Bite Me!</h3>
+                <p>Bite Me! Cakes and Pastries offer baked products - cakes for all occassions, holiday breads and even breakfast cookies! Order online and get it delivered fresh!!! (Olongapo-Bataan area only)</p>
+            </div>
+            <div class="col-sm-6">
+                    <h3>Nice header. Where do I find more images like that one?</h3>
+                    <p>
+                        Well, there are thousands of stock art galleries, but personally,
+                        I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a>
+                        and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a>
+                    </p>
+                </div>
+            </div> <!-- /row -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Can I use it to build a site for my client?</h3>
+                <p>
+                    Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>,
+                    which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work.
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h3>Can you customize this template for me?</h3>
+                <p>Yes, I can. Please drop me a line to sergey-at-pozhilov.com and describe your needs in details. Please note, my services are not cheap.</p>
+            </div>
+        </div> <!-- /row -->
+
+        <div class="jumbotron top-space">
+            <h4>Mercadia is fast, easy to setup and a piece of pie to configure. I can recommend this to my friends setting up their own small scale businesses on the web. Try it, you'll be glad you did.</h4>
+            <p class="text-right"><a class="btn btn-primary btn-large">Join us »</a></p>
+        </div>
+
+    </div>	<!-- /container -->
+    <!-- Social links. TODO: replace by link/instructions in template -->
+    <section id="social">
+        <div class="container">
+            <div class="wrapper clearfix">
+                <!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style">
+                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                    <a class="addthis_button_tweet"></a>
+                    <a class="addthis_button_linkedin_counter"></a>
+                    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                </div>
+                <!-- AddThis Button END -->
+            </div>
+        </div>
+    </section>
+    <!-- /social links -->
+
+
+    <footer id="footer" class="top-space">
+
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Contact</h3>
+                        <div class="widget-body">
+                            <img src="~/content/main/images/logolg.png" alt="MERCADIA : Online Store Platform" style="width:75px;height:75px;">
+                            <p>
+                                +63 927 241 6010<br>
+                                <a href="mailto:#">gjimenez@mercadia.com</a><br>
+                                <br>
+                                ANGELES UNIVERSITY FOUNDATION
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Sign Up using</h3>
+                        <div class="widget-body">
+                            <p class="follow-me-icons">
+                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <h3 class="widget-title" id="about">About Mercadia</h3>
+                        <div class="widget-body">
+                            <p>This is a school requirement for E-Commerce Technologies in Angeles University Foundation MIT Class of 2015-2016. Under the tutelage of Dr. Gilbert Tumibay, four students: Goshen Jimenez, Deepika, Jerreck Navalta and Eugene Perez sought to create a flexible and easy to setup e-commerce platform for usage of different small online businesses.</p>
+                            <p>We designed Mercadia to be a platform for E-Commerce and will be able to cater small businesses thriving in the web. It connects people to businesses and aims to reach more people via social media integration. </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="#top">Top</a> |
+                                <b><a href="signup.html">Sign up</a></b>
+                                | Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                Copyright &copy; 2014, Goshen Jimenez | Jerreck Navalta | Deepika | Eugene Perez
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="~/content/main/js/jquery.js"></script>
+    <script src="~/content/main/js/bootstrap.min.js"></script>
+    <script src="~/content/main/js/headroom.min.js"></script>
+    <script src="~/content/main/js/jQuery.headroom.min.js"></script>
+    <script src="~/content/main/js/template.js"></script>
+</body>
+</html>
