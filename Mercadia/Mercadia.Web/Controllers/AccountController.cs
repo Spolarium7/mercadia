@@ -19,6 +19,12 @@ namespace Mercadia.Web.Controllers
         [HttpPost]
         public ActionResult Register(UserRequestDto request)
         {
+            if (request.Password != request.ConfirmPassword)
+            {
+                this.ModelState.AddModelError("", "Password confirmation does not match");
+                return View(request);
+            }
+
 
             /* Api CALL */
             var response = Post<string>("users", request);

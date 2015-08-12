@@ -18,6 +18,8 @@ namespace Mercadia.Infrastructure.DTO.Users
         public string Phone { get; set; }
 
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+
         [Required]
         public string DeliveryAddress { get; set; }
         [Required]

@@ -21,6 +21,7 @@
         <p style="font-family:Segoe, 'Segoe UI', 'Arial', sans-serif;color:#FF9046; font-weight:700; font-size:32px; text-align:center; margin:0;">
             @ViewBag.VerificationCode
         </p>
+
         <p style="font-family:Segoe, 'Segoe UI', 'Arial', sans-serif; margin:15px 30px 30px; text-align:center;">
             <a href="@Url.Abs(Url.Action("VerifyEmail", "Account", new { email = ViewBag.Email }))">@Url.Abs(Url.Action("VerifyEmail", "Account", new { email = ViewBag.Email }))</a><br />
             <span style="font-size:12px; color:#999;">

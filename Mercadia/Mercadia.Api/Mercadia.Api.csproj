@@ -159,6 +159,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,6 +181,7 @@
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\2.jpg" />
     <Content Include="Content\images\bg_header.jpg" />
+    <Content Include="Content\images\email_banner.png" />
     <Content Include="Content\images\gt_favicon.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\mac.jpg" />

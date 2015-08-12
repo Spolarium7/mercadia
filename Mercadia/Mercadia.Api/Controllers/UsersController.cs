@@ -15,14 +15,15 @@ using Mercadia.Infrastructure.DTO;
 using Mercadia.Infrastructure.DTO.Users;
 using Mercadia.Api.Mailers;
 using Mercadia.Api.Helpers;
+using System.Net.Http.Formatting;
 
 namespace Mercadia.Api.Controllers
 {
 
     [RoutePrefix("api/users")]
-    public class UsersController : ApiController
+    public class UsersController : BaseApiController
     {
-        private MercadiaDbContext db = new MercadiaDbContext();
+
 
         // GET: api/Users
 
@@ -66,34 +67,35 @@ namespace Mercadia.Api.Controllers
         [HttpPost]
         public string Post(UserRequestDto request)
         {
-            if (db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).Count() != 0)
-            {
-                ModelState.AddModelError("Duplicate Error", "Email is already in use.");
-                return null;
-            };
+                if (db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).Count() != 0)
+                {
+                    ThrowError("Email already in use");
+                    return null;
+                };
 
-            string verifyCode = System.Web.Security.Membership.GeneratePassword(6, 2);
-            string password = System.Web.Security.Membership.GeneratePassword(8, 3);
+                string verifyCode = System.Web.Security.Membership.GeneratePassword(6, 2);
 
-            User user = new User();
-            user.ClearTextPassword = password;
-            user.Email = request.Email.ToLower();
-            user.DeliveryAddress = request.DeliveryAddress;
-            user.DeliveryCountry = request.DeliveryCountry;
-            user.DeliveryState = request.DeliveryState;
-            user.FirstName = request.FirstName;
-            user.LastName = request.LastName;
-            user.Phone = request.Phone;
-            user.Status = UserStatus.Unverified;
-            user.VerificationCode = verifyCode;
-            user.PasswordIsGenerated = true;
-            db.Users.Add(user);
+                User user = new User();
+                user.ClearTextPassword = request.Password;
+                user.Email = request.Email.ToLower();
+                user.DeliveryAddress = request.DeliveryAddress;
+                user.DeliveryCountry = request.DeliveryCountry;
+                user.DeliveryState = request.DeliveryState;
+                user.FirstName = request.FirstName;
+                user.LastName = request.LastName;
+                user.Phone = request.Phone;
+                user.Status = UserStatus.Unverified;
+                user.VerificationCode = verifyCode;
+                user.PasswordIsGenerated = true;
+                db.Users.Add(user);
+                db.SaveChanges();
 
-            new UserMailer()
-                .Welcome(name: string.Format("{0} {1}", user.LastName, user.FirstName), email: user.Email, verificationCode: verifyCode)
-                .SendNow();
+                new UserMailer()
+                    .Welcome(name: string.Format("{0} {1}", user.LastName, user.FirstName), email: user.Email, verificationCode: verifyCode)
+                    .SendNow();
 
-            return user.Id.ToString();
+                return user.Id.ToString();
+
         }
     }
 }

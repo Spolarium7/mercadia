@@ -85,23 +85,14 @@ namespace Mercadia.Web.Controllers
                 /* validation error */
                 else if (response.StatusCode == HttpStatusCode.BadRequest)
                 {
-                    dto.Message = "";
-
-                    var errorObj = JsonConvert.DeserializeObject<Dictionary<string, object>>(response.Content);
-
-                    if (errorObj["ModelState"] != null)
-                    {
-                       dto.Message = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(errorObj["ModelState"].ToString()).Values.FirstOrDefault().ToString();
-                       this.ErrorMessage = dto.Message;
-                    }
+                    dto.Message = JsonConvert.DeserializeObject<string>(response.Content);
+                    this.ErrorMessage = JsonConvert.DeserializeObject<string>(response.Content);
                 }
                 /* application authentication error */
                 else if (response.StatusCode == HttpStatusCode.Forbidden)
                 {
-                    dto.Message = "";
-                    var errorObj = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(response.Content).FirstOrDefault().ToString();
-                    dto.Message= errorObj;
-                    this.ErrorMessage = errorObj;
+                    dto.Message = JsonConvert.DeserializeObject<string>(response.Content);
+                    this.ErrorMessage = JsonConvert.DeserializeObject<string>(response.Content);
                 }
                 else
                 {

@@ -32,6 +32,16 @@
                     <label>Email Address <span class="text-danger">*</span></label>
                     @Html.TextBoxFor(a => a.Email, new { @class = "form-control", placeholder = "Email" })
                 </div>
+                <div class="row top-margin">
+                    <div class="col-sm-6">
+                        <label>Password <span class="text-danger">*</span></label>
+                        @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Confirm Password <span class="text-danger">*</span></label>
+                        @Html.PasswordFor(a => a.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                    </div>
+                </div>
                 <hr>
                 <div class="top-margin">
                     <label>Phone number <span class="text-danger">*</span></label>
