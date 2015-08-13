@@ -73,7 +73,7 @@ namespace Mercadia.Api.Controllers
                     return null;
                 };
 
-                string verifyCode = System.Web.Security.Membership.GeneratePassword(6, 2);
+                string verifyCode = System.Web.Security.Membership.GeneratePassword(6, 0);
 
                 User user = new User();
                 user.ClearTextPassword = request.Password;
@@ -96,6 +96,25 @@ namespace Mercadia.Api.Controllers
 
                 return user.Id.ToString();
 
+        }
+
+        [HttpPost]
+        public string Verify(UserVerifyRequestDto request)
+        {
+            Guid Id = new Guid(request.Id);
+            var user = db.Users.Where(a => a.Id == Id && a.VerificationCode == request.VerificationCode).FirstOrDefault();
+
+            if (user == null)
+            {
+                ThrowError("User not found");
+                return null;
+            }
+
+            user.Status = UserStatus.Active;
+            db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return user.Id.ToString();
         }
     }
 }
