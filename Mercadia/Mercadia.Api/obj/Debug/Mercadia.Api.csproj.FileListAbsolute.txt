@@ -36,7 +36,6 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramew
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mercadia.Infrastructure.pdb
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.xml
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.pdb
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.SqlServer.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.SqlServer.xml

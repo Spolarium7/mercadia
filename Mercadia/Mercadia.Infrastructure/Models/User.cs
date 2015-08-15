@@ -26,7 +26,7 @@ namespace Mercadia.Infrastructure.Models
             this.Timestamp = DateTime.Now;
             this.Id = Guid.NewGuid();
         }
-
+        public int NoOfLoginRetries { get; set; }
         public Guid Id { get; set; }
         public string VerificationCode { get; set; }
         public Boolean PasswordIsGenerated { get; set; }

@@ -1,4 +1,4 @@
-﻿
+﻿@model Mercadia.Web.ViewModels.StoresViewModel
 @{
     Layout = null;
 }
@@ -37,7 +37,7 @@
             <div class="navbar-header">
                 <!-- Button for smallest screens -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" href="#"><img src="~/content/main/images/logosm.jpg" alt="MERCADIA : Online Store Platform"></a>
+                <a class="navbar-brand" href="#"><img src="~/content/main/images/logo.png" alt="MERCADIA : Online Store Platform"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
@@ -49,7 +49,8 @@
                             <li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
                         </ul>
                     </li>
-                    <li><a class="btn" href="~/account/register">SIGN IN / SIGN UP</a></li>
+                    <li><a class="btn" href="~/account/register">SIGN UP</a></li>
+                    <li><a class="btn" href="~/account/login">SIGN IN</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -61,7 +62,7 @@
             <div class="row">
                 <h1 class="lead">MERCADIA</h1>
                 <p class="tagline">Online store platform</p>
-                <p><a class="btn btn-default btn-lg" role="button" href="#about">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">REGISTER NOW</a></p>
+                <p><a class="btn btn-default btn-lg" role="button" href="#about">STORES</a> <a class="btn btn-action btn-lg" role="button" href="~/account/register">REGISTER NOW</a></p>
             </div>
         </div>
     </header>
@@ -111,50 +112,55 @@
         </div>
     </div>
     <!-- /Highlights -->
-    <!-- container -->
+    @if (Model.Stores != null && Model.Stores.Count > 0)
+    {
+        <div class="container">
+            <h2 class="text-center top-space">Visit our stores</h2>
+            <br />
+                @{
+        float itemsPerRow = 4;
+        float totalItems = (float)(Model.Stores.Count);
+        float rws = (totalItems / itemsPerRow);
+        var rows = Math.Ceiling((decimal)rws);
+
+        if (rows == 1)
+        {
+            rows = 2;
+        }
+
+        for (int i = 0; i < (rows - 1); i++)
+        {
+
+            <div class="row">
+                @{
+            foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Model.Stores.Skip(i * 2))
+            {
+                    <div class="col-sm-2">
+                        <img src="@store.ProfilePic" alt="@store.Name" style="width:150px;height:150px;" />
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>@store.Name</h3>
+                        <p>@store.Description</p>
+                    </div>
+            }
+
+                }
+            </div> <!-- /row  -->
+        }
+                }
+        </div>
+}
+
     <div class="container">
-
-        <h2 class="text-center top-space">Visit our stores</h2>
-        <br>
-
-        <div class="row">
-            <div class="col-sm-2">
-                <img src="~/Content/Stores/Featured1/logo.jpg" alt="Bite Me" style="width:150px;height:150px;" />
-            </div>
-            <div class="col-sm-4">
-                <h3>Bite Me!</h3>
-                <p>Bite Me! Cakes and Pastries offer baked products - cakes for all occassions, holiday breads and even breakfast cookies! Order online and get it delivered fresh!!! (Olongapo-Bataan area only)</p>
-            </div>
-            <div class="col-sm-6">
-                    <h3>Nice header. Where do I find more images like that one?</h3>
-                    <p>
-                        Well, there are thousands of stock art galleries, but personally,
-                        I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a>
-                        and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a>
-                    </p>
-                </div>
-            </div> <!-- /row -->
-
-        <div class="row">
-            <div class="col-sm-6">
-                <h3>Can I use it to build a site for my client?</h3>
-                <p>
-                    Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>,
-                    which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work.
-                </p>
-            </div>
-            <div class="col-sm-6">
-                <h3>Can you customize this template for me?</h3>
-                <p>Yes, I can. Please drop me a line to sergey-at-pozhilov.com and describe your needs in details. Please note, my services are not cheap.</p>
-            </div>
-        </div> <!-- /row -->
-
         <div class="jumbotron top-space">
             <h4>Mercadia is fast, easy to setup and a piece of pie to configure. I can recommend this to my friends setting up their own small scale businesses on the web. Try it, you'll be glad you did.</h4>
-            <p class="text-right"><a class="btn btn-primary btn-large">Join us »</a></p>
+            <p class="text-right"><a class="btn btn-primary btn-large" href="~/account/register">Join us »</a></p>
         </div>
 
-    </div>	<!-- /container -->
+    </div>
+
+
+    <!-- /container -->
     <!-- Social links. TODO: replace by link/instructions in template -->
     <section id="social">
         <div class="container">
@@ -196,7 +202,7 @@
                         <h3 class="widget-title">Sign Up using</h3>
                         <div class="widget-body">
                             <p class="follow-me-icons">
-                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
+                                <a href="~/account/register"><i class="fa fa-facebook fa-2"></i></a>
                             </p>
                         </div>
                     </div>

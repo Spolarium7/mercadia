@@ -10,7 +10,8 @@ namespace Mercadia.Infrastructure.Enums
     {
         Unverified,
         Active,
-        Inactive
+        Inactive,
+        Locked
     }
 
     public enum Status

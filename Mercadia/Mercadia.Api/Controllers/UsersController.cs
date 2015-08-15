@@ -29,7 +29,7 @@ namespace Mercadia.Api.Controllers
 
         [HttpGet, Route("list")]
         public List<UserResponseDto> List()
-        {
+        {           
             return db.Users.Select(a => new UserResponseDto() { 
                 Email = a.Email,
                 DeliveryAddress = a.DeliveryAddress,
@@ -64,7 +64,29 @@ namespace Mercadia.Api.Controllers
                 }).FirstOrDefault();
         }
 
-        [HttpPost]
+        [HttpGet, Route("{id}")]
+        public UserResponseDto Get(string id)
+        {
+            Guid idCompare = Guid.Parse(id);
+
+            return db.Users
+                .Where(a => a.Id == idCompare)
+                .Select(a => new UserResponseDto()
+                {
+                    Email = a.Email,
+                    DeliveryAddress = a.DeliveryAddress,
+                    DeliveryCountry = a.DeliveryCountry,
+                    DeliveryState = a.DeliveryState,
+                    FirstName = a.FirstName,
+                    LastName = a.LastName,
+                    Phone = a.Phone,
+                    Id = a.Id,
+                    Status = a.Status,
+                    Timestamp = a.Timestamp
+                }).FirstOrDefault();
+        }
+
+        [HttpPost, Route("")]
         public string Post(UserRequestDto request)
         {
                 if (db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).Count() != 0)
@@ -98,7 +120,7 @@ namespace Mercadia.Api.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost, Route("verify")]
         public string Verify(UserVerifyRequestDto request)
         {
             Guid Id = new Guid(request.Id);
@@ -115,6 +137,60 @@ namespace Mercadia.Api.Controllers
             db.SaveChanges();
 
             return user.Id.ToString();
+        }
+
+
+        [HttpPost, Route("login"), AllowAnonymous]
+        public UserResponseDto Login(UserLoginRequestDto request)
+        {
+            var user = db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).FirstOrDefault();
+
+            if (BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
+            {
+                user.NoOfLoginRetries = 0;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                user.NoOfLoginRetries = user.NoOfLoginRetries + 1;
+                if (user.NoOfLoginRetries >= 3 && (user.Status == UserStatus.Active || user.Status == UserStatus.Unverified))
+                {
+                    user.Status = UserStatus.Locked;
+                }
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                user = null;
+            }
+
+
+            if (user == null)
+            {
+                ThrowError("Email or password is invalid.");
+                return null;
+            }
+
+            if (user.Status == UserStatus.Unverified
+                || user.Status == UserStatus.Inactive
+                || user.Status == UserStatus.Locked)
+            {
+                ThrowError("User account is inactive.");
+                return null;
+            }
+
+            return new UserResponseDto()
+            {
+                Email = user.Email,
+                DeliveryAddress = user.DeliveryAddress,
+                DeliveryCountry = user.DeliveryCountry,
+                DeliveryState = user.DeliveryState,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Phone = user.Phone,
+                Id = user.Id,
+                Status = user.Status,
+                Timestamp = user.Timestamp
+            };
         }
     }
 }

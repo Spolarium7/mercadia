@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Mercadia.Web.ViewModel.Account
+namespace Mercadia.Web.ViewModels.Account
 {
     public class VerifyViewModel
     {
