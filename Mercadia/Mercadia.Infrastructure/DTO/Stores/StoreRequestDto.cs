@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mercadia.Infrastructure.Models
+namespace Mercadia.Infrastructure.DTO.Stores
 {
-    public class Store : BaseModel
+    public class StoreRequestDto
     {
-        public Guid StoreOwnerId { get; set; }
+        public string StoreOwnerId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string ProfilePic { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
-        public string Template { get; set; }
     }
 }

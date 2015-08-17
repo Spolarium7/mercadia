@@ -1,4 +1,5 @@
 ﻿using Mercadia.Infrastructure.DTO.Stores;
+using Mercadia.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,6 @@ namespace Mercadia.Api.Controllers
                     Name = a.Name,
                     Address = a.Address,
                     Description = a.Description,
-                    LocationLat = a.LocationLat,
-                    LocationLong = a.LocationLong,
                     ProfilePic = path + a.ProfilePic,
                     Template = a.Template,
                     ZipCode = a.ZipCode,
@@ -47,8 +46,6 @@ namespace Mercadia.Api.Controllers
                     Name = a.Name,
                     Address = a.Address,
                     Description = a.Description,
-                    LocationLat = a.LocationLat,
-                    LocationLong = a.LocationLong,
                     ProfilePic = path + a.ProfilePic,
                     Template = a.Template,
                     ZipCode = a.ZipCode,
@@ -77,8 +74,6 @@ namespace Mercadia.Api.Controllers
                     Name = a.Name,
                     Address = a.Address,
                     Description = a.Description,
-                    LocationLat = a.LocationLat,
-                    LocationLong = a.LocationLong,
                     ProfilePic = path + a.ProfilePic,
                     Template = a.Template,
                     ZipCode = a.ZipCode,
@@ -88,5 +83,24 @@ namespace Mercadia.Api.Controllers
                 }).ToList();
         }
 
+        [HttpPost, Route("")]
+        public string Post(StoreRequestDto request)
+        {
+            Guid idCreate = Guid.Parse(request.StoreOwnerId);
+
+            Store store = new Store();
+            store.Address = request.Address;
+            store.Description = request.Description;
+            store.Name = request.Name;
+            store.ProfilePic = "default.png";
+            store.Template = "businessr";
+            store.StoreOwnerId = idCreate;
+            store.ZipCode = request.ZipCode;
+            db.Stores.Add(store);
+            db.SaveChanges();
+
+            return store.Id.ToString();
+
+        }
     }
 }

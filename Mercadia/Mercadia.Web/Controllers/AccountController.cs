@@ -258,11 +258,11 @@ namespace Mercadia.Web.Controllers
             else if (response.Status == HttpStatusCode.BadRequest)
             {
                 this.ModelState.AddModelError("", response.Message);
-                return View(request);
+                return View();
             }
 
             /* If we got this far, something failed, redisplay form */
-            return View(request);
+            return View();
         }
 
         #endregion
