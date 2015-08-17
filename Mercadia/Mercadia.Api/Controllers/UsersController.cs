@@ -120,6 +120,46 @@ namespace Mercadia.Api.Controllers
 
         }
 
+        [HttpPut, Route("editprofile")]
+        public string Put(UserProfileRequestDto request)
+        {
+
+            Guid idCompare = Guid.Parse(request.Id);
+            User user = db.Users.Where(a => a.Id == idCompare).FirstOrDefault();
+
+            if (user == null)
+            {
+                ThrowError("User not found");
+                return null;
+            };
+
+            user.DeliveryAddress = request.DeliveryAddress;
+            user.DeliveryCountry = request.DeliveryCountry;
+            user.DeliveryState = request.DeliveryState;
+            user.FirstName = request.FirstName;
+            user.LastName = request.LastName;
+            user.Phone = request.Phone;
+            db.SaveChanges();
+
+            return user.Id.ToString();
+
+        }
+
+        [HttpPut, Route("changepassword")]
+        public string ChangePassword(ChangePasswordRequestDto request)
+        {
+            Guid idCompare = Guid.Parse(request.Id);
+            User user = db.Users.Where(a => a.Id == idCompare).FirstOrDefault();
+
+            /* update user status */
+            user.ClearTextPassword = request.NewPassword;
+            user.PasswordIsGenerated = false;
+            db.SaveChanges();
+
+            return user.Id.ToString();
+
+        }
+
         [HttpPost, Route("verify")]
         public string Verify(UserVerifyRequestDto request)
         {

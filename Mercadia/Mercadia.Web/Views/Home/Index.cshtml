@@ -117,7 +117,7 @@
         <div class="container">
             <h2 class="text-center top-space">Visit our stores</h2>
             <br />
-                @{
+        @{
         float itemsPerRow = 4;
         float totalItems = (float)(Model.Stores.Count);
         float rws = (totalItems / itemsPerRow);
@@ -132,7 +132,7 @@
         {
 
             <div class="row">
-                @{
+            @{
             foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Model.Stores.Skip(i * 2))
             {
                     <div class="col-sm-2">
@@ -144,10 +144,10 @@
                     </div>
             }
 
-                }
+            }
             </div> <!-- /row  -->
         }
-                }
+        }
         </div>
 }
 

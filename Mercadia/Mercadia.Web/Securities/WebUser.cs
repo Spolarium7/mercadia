@@ -1,4 +1,5 @@
-﻿using Mercadia.Infrastructure.DTO.Users;
+﻿using Mercadia.Infrastructure.DTO.Stores;
+using Mercadia.Infrastructure.DTO.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,20 @@ namespace Mercadia.Web.Securities
                 return null;
             }
             set { HttpContext.Current.Session["CurrentUser"] = value; }
+        }
+
+        public static List<StoreResponseDto> UserStores
+        {
+            get
+            {
+                if (HttpContext.Current.Session != null && HttpContext.Current.Session["UserStores"] != null)
+                {
+                    return (List<StoreResponseDto>)HttpContext.Current.Session["UserStores"];
+                }
+
+                return null;
+            }
+            set { HttpContext.Current.Session["UserStores"] = value; }
         }
     }
 }

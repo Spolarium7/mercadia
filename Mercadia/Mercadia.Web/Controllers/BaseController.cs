@@ -1,4 +1,4 @@
-﻿
+﻿using Mercadia.Web.Securities;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace Mercadia.Web.Controllers
 {
+    [InPrivate]
     public class BaseController : Controller
     {
         protected string ErrorMessage = "";

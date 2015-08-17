@@ -13,7 +13,7 @@ namespace Mercadia.Web.Controllers
     public class HomeController : BaseController
     {
 
-
+        [AllowAnonymous]
         public ActionResult Index()
         {
             StoresViewModel model = new StoresViewModel();

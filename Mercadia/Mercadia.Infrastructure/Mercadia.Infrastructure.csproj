@@ -59,7 +59,9 @@
     <Compile Include="DTO\BaseDto.cs" />
     <Compile Include="DTO\ChangeStatusDto.cs" />
     <Compile Include="DTO\Stores\StoreResponseDto.cs" />
+    <Compile Include="DTO\Users\ChangePasswordRequestDto.cs" />
     <Compile Include="DTO\Users\UserLoginRequestDto.cs" />
+    <Compile Include="DTO\Users\UserProfileRequestDto.cs" />
     <Compile Include="DTO\Users\UserRequestDto.cs" />
     <Compile Include="DTO\Users\UserResponseDto.cs" />
     <Compile Include="DTO\Users\UserVerifyRequestDto.cs" />

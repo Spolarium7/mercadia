@@ -1,0 +1,58 @@
+﻿@model Mercadia.Infrastructure.DTO.Users.UserProfileRequestDto
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_CenterLayout.cshtml";
+}
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3 class="thin text-center">Edit Profile</h3>
+            <hr>
+
+            @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="top-margin">
+                    <label>First Name</label>
+                    @Html.HiddenFor(a => a.Id)
+                    @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control", placeholder = "First Name"})
+                </div>
+                <div class="top-margin">
+                    <label>Last Name</label>
+                    @Html.TextBoxFor(a => a.LastName, new { @class = "form-control", placeholder = "Last Name"})
+                </div>
+                <hr>
+                <div class="top-margin">
+                    <label>Phone number <span class="text-danger">*</span></label>
+                    @Html.TextBoxFor(a => a.Phone, new { @class = "form-control", placeholder = "Phone Number"})
+                </div>
+                <div class="top-margin">
+                    <label>Billing Address <span class="text-danger">*</span></label>
+                    @Html.TextAreaFor(a => a.DeliveryAddress, new { @class = "form-control", placeholder = "Billing Address"})
+                </div>
+                <div class="top-margin">
+                    <label>Province \ State<span class="text-danger">*</span></label>
+                    @Html.TextBoxFor(a => a.DeliveryState, new { @class = "form-control", placeholder = "Province \\ State"})
+                </div>
+                <div class="top-margin">
+                    <label>Country <span class="text-danger">*</span></label>
+                    @Html.TextBoxFor(a => a.DeliveryCountry, new { @class = "form-control", placeholder = "Country"})
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <label class="checkbox">
+
+                        </label>
+                    </div>
+                    <div class="col-lg-4 text-right">
+                        <button class="btn btn-action" type="submit">Save</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
