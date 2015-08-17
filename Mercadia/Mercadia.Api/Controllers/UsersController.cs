@@ -151,9 +151,27 @@ namespace Mercadia.Api.Controllers
             Guid idCompare = Guid.Parse(request.Id);
             User user = db.Users.Where(a => a.Id == idCompare).FirstOrDefault();
 
+
+
             /* update user status */
             user.ClearTextPassword = request.NewPassword;
             user.PasswordIsGenerated = false;
+            db.SaveChanges();
+
+            return user.Id.ToString();
+
+        }
+
+        [HttpPut, Route("forgotpassword")]
+        public string ForgotPassword(ForgotPasswordRequestDto request)
+        {
+            User user = db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).FirstOrDefault();
+
+            string newPassword = System.Web.Security.Membership.GeneratePassword(6, 0);
+
+            /* update user status */
+            user.ClearTextPassword = newPassword;
+            user.PasswordIsGenerated = true;
             db.SaveChanges();
 
             return user.Id.ToString();

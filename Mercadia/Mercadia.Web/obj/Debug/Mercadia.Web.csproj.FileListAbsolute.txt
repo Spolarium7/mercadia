@@ -39,3 +39,6 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\EntityFramew
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\EntityFramework.SqlServer.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\JetBrains.Annotations.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Recaptcha.Web.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\JetBrains.Annotations.xml

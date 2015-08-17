@@ -14,4 +14,3 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\D
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\obj\Debug\Mercadia.Infrastructure.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\obj\Debug\Mercadia.Infrastructure.pdb
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\obj\Debug\Mercadia.Infrastructure.csprojResolveAssemblyReference.cache

@@ -12,7 +12,8 @@ using System.Net;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-
+using Recaptcha.Web;
+using Recaptcha.Web.Mvc;
 
 namespace Mercadia.Web.Controllers
 {
@@ -98,7 +99,59 @@ namespace Mercadia.Web.Controllers
         }
         #endregion
 
-        #region EditProfile
+        #region ForgotPassword
+        [HttpGet, AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost, AllowAnonymous]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel request)
+        {
+            /* Api CALL */
+            #region Recaptcha
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                this.ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                return View(request);
+            }
+            else
+            {
+                RecaptchaVerificationResult recaptchaResult = recaptchaHelper.VerifyRecaptchaResponse();
+
+                if (recaptchaResult != RecaptchaVerificationResult.Success)
+                {
+                    this.ModelState.AddModelError("", "Incorrect captcha answer.");
+                    return View(request);
+                }
+            }
+            #endregion
+
+            var response = Put<string>("users//forgotpassword", request);
+
+            /* Test RESULTS - OKAY */
+            if (response.Status == HttpStatusCode.OK)
+            {
+                SignIn(WebUser.CurrentUser.Id.ToString());
+                return RedirectToAction("dashboard", "account");
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (response.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", response.Message);
+                return View(request);
+            }
+
+            /* If we got this far, something failed, redisplay form */
+            return View(request);
+
+        }
+        #endregion
+
+        #region ChangePassword
         [HttpGet]
         public ActionResult ChangePassword()
         {
@@ -118,7 +171,7 @@ namespace Mercadia.Web.Controllers
                 return View(request);
             }
 
-            var response = Put<string>("users//changepassword", request);
+            var response = Put<string>("users//changepassword", new ChangePasswordRequestDto { Id = request.Id, NewPassword = request.Password });
 
             /* Test RESULTS - OKAY */
             if (response.Status == HttpStatusCode.OK)
