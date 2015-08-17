@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace Mercadia.Web.Areas.Management
+namespace Mercadia.Web.Areas.Manage
 {
-    public class ManagementAreaRegistration : AreaRegistration 
+    public class ManageAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Management";
+                return "Manage";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Management_default",
-                "Management/{controller}/{action}/{id}",
+                "Manage_default",
+                "Manage/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
