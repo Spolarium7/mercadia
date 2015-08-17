@@ -36,7 +36,6 @@ namespace Mercadia.Web.Controllers
                 return View(request);
             }
 
-
             /* Api CALL */
             var response = Post<string>("users", request);
 
@@ -134,9 +133,8 @@ namespace Mercadia.Web.Controllers
 
             /* Test RESULTS - OKAY */
             if (response.Status == HttpStatusCode.OK)
-            {
-                SignIn(WebUser.CurrentUser.Id.ToString());
-                return RedirectToAction("dashboard", "account");
+            {                
+                return RedirectToAction("login", "account");
             }
             /* Test RESULTS - Api Validation Error */
             else if (response.Status == HttpStatusCode.BadRequest)
@@ -278,22 +276,30 @@ namespace Mercadia.Web.Controllers
             if (response.Status == HttpStatusCode.OK)
             {
                 WebUser.CurrentUser = response.Data;
-
-                //var identity = UserManager.CreateIdentity();
-
-
-                //AuthenticationManager.SignIn(
-                //   new AuthenticationProperties()
-                //   {
-                //       IsPersistent = true
-                //   }, identity);
-
+                WebUser.UserStores = GetStoresByUser();
             }
             /* Test RESULTS - Api Validation Error */
             else if (response.Status == HttpStatusCode.BadRequest)
             {
                 this.ModelState.AddModelError("", response.Message);
             }
+        }
+
+        public List<StoreResponseDto> GetStoresByUser(){
+            var response = Get<List<StoreResponseDto>>("stores//byowner//" + WebUser.CurrentUser.Id);
+
+            /* Test RESULTS - OKAY */
+            if (response.Status == HttpStatusCode.OK)
+            {
+                return response.Data;                
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (response.Status == HttpStatusCode.BadRequest)
+            {
+                return null;
+            }
+
+            return null;
         }
         #endregion
 
@@ -318,14 +324,14 @@ namespace Mercadia.Web.Controllers
         #endregion
         public ActionResult Dashboard()
         {
-            StoresViewModel model = new StoresViewModel();
-            var response = Get<List<StoreResponseDto>>("stores//byowner//" + WebUser.CurrentUser.Id);
+            DashboardViewModel model = new DashboardViewModel();
+            var response = Get<List<StoreResponseDto>>("stores//list");
 
             /* Test RESULTS - OKAY */
             if (response.Status == HttpStatusCode.OK)
             {
+                model.MyStores = WebUser.UserStores;
                 model.Stores = response.Data;
-
                 return View(model);
             }
             /* Test RESULTS - Api Validation Error */

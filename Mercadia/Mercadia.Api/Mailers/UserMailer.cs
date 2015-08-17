@@ -23,6 +23,19 @@ namespace Mercadia.Api.Mailers
             });
         }
 
+        public virtual MvcMailMessage ForgotPassword(string name, string email, string newPassword)
+        {
+            ViewBag.Name = name;
+            ViewBag.Email = email;
+            ViewBag.NewPassword = newPassword;
+
+            return Populate(x =>
+            {
+                x.Subject = string.Format("{0} - Mercadia", "New Password");
+                x.ViewName = "ForgotPassword";
+                x.To.Add(email);
+            });
+        }
     }
 }
 

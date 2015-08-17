@@ -174,6 +174,10 @@ namespace Mercadia.Api.Controllers
             user.PasswordIsGenerated = true;
             db.SaveChanges();
 
+            new UserMailer()
+            .ForgotPassword(name: string.Format("{0} {1}", user.LastName, user.FirstName), email: user.Email, newPassword: newPassword)
+            .SendNow();
+
             return user.Id.ToString();
 
         }

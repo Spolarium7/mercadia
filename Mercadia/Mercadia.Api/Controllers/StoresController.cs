@@ -11,6 +11,27 @@ namespace Mercadia.Api.Controllers
     [RoutePrefix("api/stores")]
     public class StoresController : BaseApiController
     {
+        [HttpGet, Route("list")]
+        public List<StoreResponseDto> List()
+        {
+            var path = Url.Content("/content/images/stores/");
+
+            return db.Stores
+                .Select(a => new StoreResponseDto()
+                {
+                    Name = a.Name,
+                    Address = a.Address,
+                    Description = a.Description,
+                    LocationLat = a.LocationLat,
+                    LocationLong = a.LocationLong,
+                    ProfilePic = path + a.ProfilePic,
+                    Template = a.Template,
+                    ZipCode = a.ZipCode,
+                    Id = a.Id,
+                    Status = a.Status,
+                    Timestamp = a.Timestamp
+                }).ToList();
+        }
 
         [HttpGet, Route("byowner/{id}")]
         public List<StoreResponseDto> ListByOwner(string id)
