@@ -1,10 +1,13 @@
-﻿using Mercadia.Infrastructure.DTO.Stores;
+﻿using ImageResizer;
+using Mercadia.Infrastructure.DTO.Stores;
 using Mercadia.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Mercadia.Api.Controllers
@@ -144,5 +147,65 @@ namespace Mercadia.Api.Controllers
             return store.Id.ToString();
 
         }
+
+        [HttpPut, Route("ChangeTemplate")]
+        public string ChangeTemplate(StoreRequestDto request)
+        {
+            Guid idCompare = Guid.Parse(request.Id);
+
+            Store store = db.Stores
+                 .Where(a => a.Id == idCompare)
+                 .FirstOrDefault();
+
+            store.Template = request.Template;
+            db.SaveChanges();
+
+            return store.Id.ToString();
+
+        }
+
+        [HttpPut, Route("ChangeProfilePic")]
+        public string ChangeProfilePic(StoreUploadThumbnailRequestDto request)
+        {
+            var filePath = this.CreateFolderIfNeeded(HttpContext.Current.Server.MapPath("~/Content/Images/Stores"));
+            var fileName = request.Id + ".jpg";
+
+            CleanFiles(request.Id.ToString());
+
+            var bytes = Convert.FromBase64String(request.Image);
+
+            #region Image to File
+            //System.Threading.Tasks.Task.Run(() =>
+            //{
+            using (var outStream = new MemoryStream())
+            {
+                using (var inStream = new MemoryStream(bytes))
+                {
+                    var settings = new ResizeSettings("maxwidth=350&maxheight=800");
+                    ImageResizer.ImageBuilder.Current.Build(inStream, outStream, settings, true);
+                    var bytesThumb = outStream.ToArray();
+
+                    using (var imageFile = new FileStream(filePath, FileMode.Create)) // thumb
+                    {
+                        imageFile.Write(bytesThumb, 0, bytesThumb.Length);
+                        imageFile.Flush();
+                    }
+                }
+            }
+            //});
+            #endregion
+
+            Guid idCompare = Guid.Parse(request.Id);
+
+            Store store = db.Stores
+                 .Where(a => a.Id == idCompare)
+                 .FirstOrDefault();
+
+            store.ProfilePic = fileName;
+            db.SaveChanges();
+
+            return store.Id.ToString();
+        }
+
     }
 }

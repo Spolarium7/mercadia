@@ -4,6 +4,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -106,6 +107,14 @@ namespace Mercadia.Web.Controllers
             }
 
             return dto;
+        }
+
+        protected byte[] FileToByteArray(Stream fileStream, long byteLength)
+        {
+            byte[] fileContent = null;
+            System.IO.BinaryReader binaryReader = new System.IO.BinaryReader(fileStream);
+            fileContent = binaryReader.ReadBytes((Int32)byteLength);
+            return fileContent;
         }
     }
 

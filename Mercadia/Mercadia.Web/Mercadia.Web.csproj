@@ -164,6 +164,7 @@
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel.cs" />
+    <Compile Include="ViewModels\Stores\StoreUploadThumbnailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Businessr\css\animate.css" />
@@ -325,6 +326,11 @@
     <Content Include="Content\Main\js\jquery.js" />
     <Content Include="Content\Main\js\respond.min.js" />
     <Content Include="Content\Main\js\template.js" />
+    <Content Include="Content\Stores\default.png" />
+    <Content Include="Content\Stores\Featured1\logo.jpg" />
+    <Content Include="Content\Stores\templates\businessr.png" />
+    <Content Include="Content\Stores\templates\eelectronics.png" />
+    <Content Include="Content\Stores\templates\eshopper.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
