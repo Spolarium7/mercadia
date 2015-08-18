@@ -353,6 +353,7 @@
     <Content Include="Content\Main\fonts\FontAwesome.otf" />
     <Content Include="Areas\Manage\Views\web.config" />
     <Content Include="Areas\Manage\Views\Stores\Add.cshtml" />
+    <Content Include="Areas\Manage\Views\Stores\Update.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

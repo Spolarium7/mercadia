@@ -1,17 +1,18 @@
 ﻿@model Mercadia.Infrastructure.DTO.Stores.StoreRequestDto
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_LeftLayout.cshtml";
 }
+
 <header class="page-header">
-    <h1 class="page-title">Create Store</h1>
+    <h1 class="page-title">Update Store</h1>
 </header>
 
 <div class="col-lg-12">
     <div class="panel panel-default">
         <div class="panel-body">
 
-            @using (Html.BeginForm("Add", "Stores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("Update", "Stores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -32,7 +33,9 @@
                 <div class="top-margin">
                     <label>ZipCode<span class="text-danger">*</span></label>
                     @Html.TextBoxFor(a => a.ZipCode, new { @class = "form-control", placeholder = "ZipCode" })
-                    @Html.Hidden("StoreOwnerId", Mercadia.Web.Securities.WebUser.CurrentUser.Id)
+                    @Html.Hiddenfor(a => a.StoreOwnerId)
+                    @Html.Hiddenfor(a => a.ProfilePic)
+                    @Html.Hiddenfor(a => a.Template)
                 </div>
                 <hr>
 
@@ -43,7 +46,7 @@
                         </label>
                     </div>
                     <div class="col-lg-4 text-right">
-                        <button class="btn btn-action" type="submit">Create store</button>
+                        <button class="btn btn-action" type="submit">Save changes</button>
                     </div>
                 </div>
             }
@@ -52,6 +55,15 @@
 
 
     @section Sidebar{
+        <h2 class="thin ">@Model.Name</h2>
+        <div class="col-md-12 highlight">
+            <div class="h-caption"><img src="@Model.ProfilePic" alt="@Model.Name" style="width:200px;height:200px;" />
+                @
+            </div>
+            <div class="h-caption"><a class="btn-link" href="~/manage/stores/@Model.Id">MANAGE</a></div>
+        </div>
+
+
         <h3 class="thin ">Your Stores</h3>
         @foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Mercadia.Web.Securities.WebUser.UserStores)
         {
@@ -62,4 +74,6 @@
                 </a>
             </div>
         }
-}
+    }
+
+

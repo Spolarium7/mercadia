@@ -13,8 +13,6 @@ namespace Mercadia.Infrastructure.DTO.Stores
         public string ProfilePic { get; set; }
         public string Address { get; set; }
         public string ZipCode { get; set; }
-        public string LocationLat { get; set; }
-        public string LocationLong { get; set; }
         public string Template { get; set; }
     }
 }

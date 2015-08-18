@@ -30,7 +30,7 @@
 
         <div class="row">
             @{
-                    foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Model.Stores.Skip(i * 4))
+                foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Model.Stores.Skip(i * 4))
                 {
                     <div class="col-md-3 col-sm-6 highlight">
                         <a href="~/stores/@store.Name/shop" style="text-decoration:none;">
@@ -89,7 +89,7 @@
                         <div class="h-body text-center">
                             <p>@store.Description</p>
                         </div>
-                        <div class="h-caption"><a class="btn-link" href="~/manage/stores/@store.Id">MANAGE</a></div>
+                        <div class="h-caption"><a class="btn-link" href="~/manage/stores/update/@store.Id">MANAGE</a></div>
                     </div>
                 }
 

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Mercadia.Web.Controllers
 {
@@ -68,8 +69,6 @@ namespace Mercadia.Web.Controllers
 
         }
         #endregion
-
-
         private Dto<T> Ping<T>(RestRequest request)
         {
 

@@ -12,6 +12,29 @@ namespace Mercadia.Api.Controllers
     [RoutePrefix("api/stores")]
     public class StoresController : BaseApiController
     {
+        [HttpGet, Route("{id}")]
+        public StoreResponseDto Get(string id)
+        {
+            Guid idCompare = Guid.Parse(id);
+
+            var path = Url.Content("/content/images/stores/");
+
+            return db.Stores
+                .Where(a => a.Id == idCompare)
+                .Select(a => new StoreResponseDto()
+                {
+                    Name = a.Name,
+                    Address = a.Address,
+                    Description = a.Description,
+                    ProfilePic = path + a.ProfilePic,
+                    Template = a.Template,
+                    ZipCode = a.ZipCode,
+                    Id = a.Id,
+                    Status = a.Status,
+                    Timestamp = a.Timestamp
+                }).FirstOrDefault();
+        }
+
         [HttpGet, Route("list")]
         public List<StoreResponseDto> List()
         {
@@ -97,6 +120,25 @@ namespace Mercadia.Api.Controllers
             store.StoreOwnerId = idCreate;
             store.ZipCode = request.ZipCode;
             db.Stores.Add(store);
+            db.SaveChanges();
+
+            return store.Id.ToString();
+
+        }
+
+        [HttpPut, Route("")]
+        public string Put(StoreRequestDto request)
+        {
+            Guid idCompare = Guid.Parse(request.Id);
+
+            Store store = db.Stores
+                 .Where(a => a.Id == idCompare)
+                 .FirstOrDefault();
+
+            store.Address = request.Address;
+            store.Description = request.Description;
+            store.Name = request.Name;
+            store.ZipCode = request.ZipCode;
             db.SaveChanges();
 
             return store.Id.ToString();
