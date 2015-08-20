@@ -196,6 +196,7 @@
     <Content Include="Content\images\gt_favicon.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\mac.jpg" />
+    <Content Include="Content\images\products\default.png" />
     <Content Include="Content\images\stores\44d0bd54-e887-4326-b7cf-62fde0524893.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\google-map.js" />
