@@ -16,13 +16,13 @@ namespace Mercadia.Web.Areas.Manage.Controllers
     public class StoresController : BaseController
     {
         #region AddNew
-        [HttpGet, AllowAnonymous]
+        [HttpGet]
         public ActionResult Add()
         {
             return View();
         }
 
-        [HttpPost, AllowAnonymous]
+        [HttpPost]
         public ActionResult Add(StoreRequestDto request)
         {          
             /* Api CALL */
@@ -32,7 +32,7 @@ namespace Mercadia.Web.Areas.Manage.Controllers
             if (response.Status == HttpStatusCode.OK)
             {
                 WebUser.UserStores = GetStoresByUser();
-                return RedirectToAction("dashboard", "account");
+                return RedirectToAction("update", new { Id = response.Data });
             }
             /* Test RESULTS - Api Validation Error */
             else if (response.Status == HttpStatusCode.BadRequest)

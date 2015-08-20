@@ -57,9 +57,15 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moolah">
+      <HintPath>..\packages\Moolah.0.7.4.62\lib\net40\Moolah.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="Recaptcha.Web">
       <HintPath>..\packages\RecaptchaNet.1.8.0\lib\net45\Recaptcha.Web.dll</HintPath>
@@ -146,7 +152,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Manage\Controllers\StoresController.cs" />
+    <Compile Include="Areas\Manage\Controllers\StoreSettingsController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Areas\Stores\StoresAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -163,7 +172,11 @@
     <Compile Include="ViewModels\Account\DashboardViewModel.cs" />
     <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoriesByStoreViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductChangeStatusViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductsListViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel.cs" />
+    <Compile Include="ViewModels\Stores\PaypalAccountSettingsViewModel.cs" />
     <Compile Include="ViewModels\Stores\StoreUploadThumbnailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -353,13 +366,20 @@
     <Content Include="Content\EShopper\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\EShopper\fonts\FontAwesome.otf" />
     <Content Include="Content\EShopper\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\Main\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\Main\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\Main\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\Main\fonts\FontAwesome.otf" />
     <Content Include="Areas\Manage\Views\web.config" />
     <Content Include="Areas\Manage\Views\Stores\Add.cshtml" />
     <Content Include="Areas\Manage\Views\Stores\Update.cshtml" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Main\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Manage\Views\Categories\ByStore.cshtml" />
+    <Content Include="Areas\Manage\Views\Categories\Add.cshtml" />
+    <Content Include="Areas\Manage\Views\Categories\Update.cshtml" />
+    <Content Include="Areas\Manage\Views\Products\List.cshtml" />
+    <Content Include="Areas\Manage\Views\Products\Add.cshtml" />
+    <Content Include="Areas\Manage\Views\Products\Update.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -400,6 +420,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Areas\Manage\Views\Shared\" />
+    <Folder Include="Areas\Manage\Views\StoreSettings\" />
     <Folder Include="Areas\Stores\Controllers\" />
     <Folder Include="Areas\Stores\Models\" />
     <Folder Include="Areas\Stores\Views\Shared\" />

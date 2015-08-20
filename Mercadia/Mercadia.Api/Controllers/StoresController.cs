@@ -114,6 +114,13 @@ namespace Mercadia.Api.Controllers
         {
             Guid idCreate = Guid.Parse(request.StoreOwnerId);
 
+            if (db.Stores
+                .Where(a => a.Name.ToLower() == request.Name.ToLower()).Count() > 0)
+            {
+                ThrowError("Store name already in use");
+                return null;
+            }
+
             Store store = new Store();
             store.Address = request.Address;
             store.Description = request.Description;
@@ -133,6 +140,13 @@ namespace Mercadia.Api.Controllers
         public string Put(StoreRequestDto request)
         {
             Guid idCompare = Guid.Parse(request.Id);
+
+            if (db.Stores
+                .Where(a => a.Name.ToLower() == request.Name.ToLower()).Count() > 0)
+            {
+                ThrowError("Store name already in use");
+                return null;
+            }
 
             Store store = db.Stores
                  .Where(a => a.Id == idCompare)

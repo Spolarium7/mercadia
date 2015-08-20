@@ -9,7 +9,7 @@ namespace Mercadia.Infrastructure.DTO
 {
     public class ChangeStatusDto
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public Status Status { get; set; }
     }
 }

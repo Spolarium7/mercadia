@@ -11,6 +11,7 @@ namespace Mercadia.Infrastructure.Models
         public Guid StoreId { get; set; }
         public string Key { get; set; }
         public string Value { get; set; }
+        public string GroupName { get; set; }
 
     }
 }

@@ -53,8 +53,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="mdlChangeTemplate" tabindex="-1" role="dialog" aria-labelledby="mdlForm" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="mdlChangeTemplate" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:1000px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -66,13 +66,13 @@
                             <input type="hidden" value="@Model.Id" id="StoreId" />
                             <input type="hidden" value="@Model.Template" id="StoreTemplate" />
                             <a href="#" onclick="setTemplate('businessr');e.preventDefault();" style="margin:10px;">
-                                <img src="~/content/Stores/templates/businessr.png" alt="businessr" style="width:150px; @(Model.Template.ToLower() == "businessr" ? "border: 5px solid #FF8C00;" : "border: 5px solid #ccc;")" class="templateImage" id="businessr_template" />
+                                <img src="~/content/Stores/templates/businessr.png" alt="businessr" style="width:250px; @(Model.Template.ToLower() == "businessr" ? "border: 5px solid #FF8C00;" : "border: 5px solid #ccc;")" class="templateImage" id="businessr_template" />
                             </a>
                             <a href="#" onclick="setTemplate('eelectronics'); e.preventDefault();" style="margin:10px;">
-                                <img src="~/content/Stores/templates/eelectronics.png" alt="eelectronics" style="width:150px;@(Model.Template.ToLower() == "eelectronics" ? "border: 5px solid #FF8C00;" : "border: 5px solid #ccc;")" class="templateImage" id="eelectronics_template" />
+                                <img src="~/content/Stores/templates/eelectronics.png" alt="eelectronics" style="width:250px;@(Model.Template.ToLower() == "eelectronics" ? "border: 5px solid #FF8C00;" : "border: 5px solid #ccc;")" class="templateImage" id="eelectronics_template" />
                             </a>
                             <a href="#" onclick="setTemplate('eshopper'); e.preventDefault();" style="margin:10px;">
-                                <img src="~/content/Stores/templates/eshopper.png" alt="eshopper" style="width:150px;@(Model.Template.ToLower() == "eshopper" ? "border: 5px solid #FF8C00;" : "border: 5px solid #ccc;")" class="templateImage" id="eshopper_template" />
+                                <img src="~/content/Stores/templates/eshopper.png" alt="eshopper" style="width:250px;@(Model.Template.ToLower() == "eshopper" ? "border: 5px solid #FF8C00;" : "border: 5px solid #ccc;")" class="templateImage" id="eshopper_template" />
                             </a>
                         </div>
                     </div>
@@ -86,93 +86,179 @@
         </div>
     </div>
 
+    <div class="modal fade" id="mdlPaypalSettings" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Paypal Settings</h4>
+                </div>
+                <form class="form-horizontal" role="form">
+                    <div class="modal-body">
+                        <div class="col-lg-12">
+                            <div class="top-margin">
+                                <label>Paypal Facilitator</label>
+                                <input type="text" name="PaypalFacilitator" id="PaypalFacilitator" class="form-control" placeholder="Paypal Facilitator" />
+                            </div>
+                            <hr>
+                            <div class="top-margin">
+                                <label>Paypal Password</label>
+                                <input type="password" name="PaypalPassword" id="PaypalPassword" class="form-control" placeholder="Paypal Password" />
+                            </div>
+                            <hr>
+                            <div class="top-margin">
+                                <label>Paypal Signature</label>
+                                <input type="text" name="PaypalSignature" id="PaypalSignature" class="form-control" placeholder="Paypal Signature" />
+                            </div>
+                       </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button id="savePaypalSettings" type="button" class="btn btn-primary" onclick="savePaypal()">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     @section Sidebar{
         <h2 class="thin ">@Model.Name</h2>
         <div class="col-md-12 highlight">
             <div class="h-caption">
-                <img src="@Model.ProfilePic" alt="@Model.Name" style="width:200px;height:200px;" />
-                @using (Html.BeginForm("ChangeProfilePic", "Stores", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div class="row">
-                        <input type="hidden" name="Id" value="@Model.Id" />
-                        <div class="top-margin">
-                            <input type="file" name="File" class="form-control" />
+                <div class="well">
+                    <img src="@Model.ProfilePic" alt="@Model.Name" style="width:200px;height:200px;" />
+                    @using (Html.BeginForm("ChangeProfilePic", "Stores", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="row">
+                            <input type="hidden" name="Id" value="@Model.Id" />
+                            <div class="top-margin">
+                                <input type="file" name="File" class="col-sm-11" style="margin-left:10px;margin-right:10px;border: 1px solid #ccc;border-radius: 4px;height: 34px;padding: 6px 12px;font-size: 14px;" />
+                            </div>
                         </div>
-                    </div>
-                    <br />
-                    <div class="clearfix" />
-                    <div class="row">
-                        <button class="btn btn-action" type="submit">Change profile Image</button>
-
-                    </div>
-                }
-
-                <hr/>
-                <br />
-                <div class="clearfix" />
-                <h4 class="thin ">Template: @Model.Template</h4>
-                <img src="~/content/Stores/templates/@(Model.Template).png" alt="@Model.Template" style="width:200px;height:200px;" />
-                <div class="row">
-                    <div class="top-margin">
-
-                    </div>
-                </div>
-                <br />
-                <div class="clearfix" />
-                <div class="row">
-                    <button class="btn btn-action" type="button" onclick="changeTemplatePrompt()">Change Template</button>
-
+                        <br />
+                        <div class="clearfix" />
+                        <div class="row">
+                            <button class="btn btn-action" type="submit">Change profile Image&nbsp;&nbsp;&nbsp;<span class="fa fa-image"></span></button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
-
-        <div class="clearfix" />
-
-        <h3 class="thin ">Your Other Stores</h3>
-        @foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Mercadia.Web.Securities.WebUser.UserStores.Where(a => a.Id.ToString() != Model.Id))
-        {
-
-            <div class="col-md-6 highlight">
-                <a href="~/manage/stores/@store.Id" style="text-decoration:none;">
-                    <div class="h-caption"><img src="@store.ProfilePic" alt="@store.Name" style="width:100px;height:100px;" /><h4>@store.Name</h4></div>
-                    <div class="h-caption"><a class="btn-link" href="~/manage/stores/@store.Id">MANAGE</a></div>
-                </a>
+        <div class="col-md-12">
+            <div class="h-caption">
+                <div class="row">
+                    <button class="btn btn-default form-control" type="button" onclick="changeTemplatePrompt()">Template : @Model.Template &nbsp;&nbsp;&nbsp;<span class="fa fa-file-image-o"></span></button>
+                </div>
             </div>
+        </div>
+        <div class="clearfix" /><br/>
+        <div class="col-md-12">
+            <div class="h-caption">
+                <div class="row">
+                    <button class="btn btn-default form-control" type="button" onclick="changePaypalPrompt()">Paypal Settings &nbsp;&nbsp;&nbsp;<span class="fa fa-paypal"></span></button>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix" /><br/>
+        <div class="col-md-12">
+            <div class="h-caption">
+                <div class="row">
+                    <a href="~/manage/categories/bystore/@Model.Id">
+                        <button class="btn btn-default form-control" type="button">Product Categories &nbsp;&nbsp;&nbsp;<span class="fa fa-folder-open"></span></button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        @{
+          if(Mercadia.Web.Securities.WebUser.UserStores.Where(a => a.Id.ToString() != Model.Id).Count() > 0)
+          { 
+                <div class="clearfix" />
+
+                <h3 class="thin ">Your Other Stores</h3>
+                foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Mercadia.Web.Securities.WebUser.UserStores.Where(a => a.Id.ToString() != Model.Id))
+                {
+
+                    <div class="col-md-6 highlight">
+                        <a href="~/manage/stores/@store.Id" style="text-decoration:none;">
+                            <div class="h-caption"><img src="@store.ProfilePic" alt="@store.Name" style="width:100px;height:100px;" /><h4>@store.Name</h4></div>
+                            <div class="h-caption"><a class="btn-link" href="~/manage/stores/@store.Id">MANAGE</a></div>
+                        </a>
+                    </div>
+                }
+          }
         }
-    }
+}
 
 
     @section scripts{
         <script>
-        function changeTemplatePrompt() {
-            $('#mdlChangeTemplate').modal('show');
-        }
-
-        function setTemplate(template) {
-            $('.templateImage').attr("style", "width:150px;border: 5px solid #ccc;");
-            $('#' + template + '_template').attr("style", "width:150px;border: 5px solid #FF8C00;");
-            $('#StoreTemplate').val(template);
-        }
-
-        function saveNewTemplate() {
-            var model = {
-                Id: $('#StoreId').val(),
-                Template: $('#StoreTemplate').val()
-            }
-
-            $.ajax({
-                url: "@Url.Content("~/manage/stores/updatetemplate")",
-                dataType: "json",
-                data: model,
-                type: "POST",
-                async: false
-            }).done(function (obj) {
-                location.reload();
-            }).fail(function (obj) {
-                location.reload();
-            });
-
-        }
-    </script>
+    function changeTemplatePrompt() {
+        $('#mdlChangeTemplate').modal('show');
     }
+
+    function setTemplate(template) {
+        $('.templateImage').attr("style", "width:150px;border: 5px solid #ccc;");
+        $('#' + template + '_template').attr("style", "width:150px;border: 5px solid #FF8C00;");
+        $('#StoreTemplate').val(template);
+    }
+
+    function saveNewTemplate() {
+        var model = {
+            Id: $('#StoreId').val(),
+            Template: $('#StoreTemplate').val()
+        }
+
+        $.ajax({
+            url: "@Url.Content("~/manage/stores/updatetemplate")",
+            dataType: "json",
+            data: model,
+            type: "POST",
+            async: false
+        }).done(function (obj) {
+            location.reload();
+        }).fail(function (obj) {
+            location.reload();
+        });
+
+    }
+
+    function changePaypalPrompt() {
+        $.ajax({
+            url: "@Url.Content("~/manage/storesettings/paypal/" + Model.Id)",
+            dataType: "json",
+            type: "GET",
+            cache: false
+        }).done(function (obj) {
+            $("#PaypalFacilitator").val(obj.PaypalFacilitator);
+            $("#PaypalPassword").val(obj.PaypalPassword);
+            $("#PaypalSignature").val(obj.PaypalSignature);
+            $('#mdlPaypalSettings').modal('show');
+        }).fail(function (obj) {
+            $('#mdlPaypalSettings').modal('show');
+        });
+    }
+
+    function savePaypal() {
+        var model = {
+            Id: $('#StoreId').val(),
+            PaypalFacilitator: $('#PaypalFacilitator').val(),
+            PaypalPassword: $('#PaypalPassword').val(),
+            PaypalSignature: $('#PaypalSignature').val()
+        }
+
+        $.ajax({
+            url: "@Url.Content("~/manage/storesettings/upsertpaypal/" + Model.Id)",
+            dataType: "json",
+            data: model,
+            type: "POST",
+            async: false
+        }).done(function (obj) {
+            location.reload();
+        }).fail(function (obj) {
+            location.reload();
+        });
+    }
+</script>
+}

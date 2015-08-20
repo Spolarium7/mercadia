@@ -1,3 +1,4 @@
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.csprojResolveAssemblyReference.cache
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mercadia.Api.dll.config
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mercadia.Api.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mercadia.Api.pdb
@@ -5,6 +6,7 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Antlr3.Runti
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.SqlServer.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\ImageResizer.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mercadia.Infrastructure.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mvc.Mailer.dll
@@ -24,6 +26,7 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Mercadia.Inf
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\BCrypt.Net.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\EntityFramework.SqlServer.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\ImageResizer.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Newtonsoft.Json.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\System.Net.Http.Formatting.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\System.Web.Helpers.xml
@@ -36,8 +39,5 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\System.Web.W
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\System.Web.WebPages.Razor.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\Antlr3.Runtime.pdb
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.csprojResolveAssemblyReference.cache
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\obj\Debug\Mercadia.Api.pdb
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\ImageResizer.dll
-C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Api\bin\ImageResizer.xml

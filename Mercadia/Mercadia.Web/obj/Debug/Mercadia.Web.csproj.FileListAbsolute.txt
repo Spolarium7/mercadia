@@ -9,7 +9,9 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Mercadia.Inf
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Moolah.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Newtonsoft.Json.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\NLog.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Recaptcha.Web.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\RestSharp.dll
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\System.Net.Http.Formatting.dll
@@ -31,6 +33,7 @@ C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\JetBrains.An
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\Newtonsoft.Json.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\NLog.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\RestSharp.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\System.Net.Http.Formatting.xml
 C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Web\bin\System.Web.Http.xml
