@@ -184,5 +184,46 @@ namespace Mercadia.Web.Areas.Manage.Controllers
 
         }
         #endregion
+
+        #region Change Profile Pic
+        public ActionResult ChangeProfilePic(ProductUploadThumbnailViewModel model)
+        {
+            var file = model.File;
+
+            if (!ModelState.IsValid || file == null)
+            {
+                 this.ModelState.AddModelError("", "Please verify and complete the required details");
+                return RedirectToAction("list", new { Id = model.CategoryId });
+            }
+            
+            if(file.ContentLength >  1048576 )
+            {
+                 this.ModelState.AddModelError("", "Maximum allowed file size is 1 MB");
+                return RedirectToAction("list", new { Id = model.CategoryId });
+            }
+
+            /* Api CALL */
+            byte[] image = FileToByteArray(file.InputStream, file.ContentLength);
+
+            var Image = Convert.ToBase64String(image);
+            /* Api CALL */
+            var response = Put<string>("products/changeprofilepic", new ProductUploadThumbnailRequestDto { Id = model.Id, Image = Image});
+
+            /* Test RESULTS - OKAY */
+            if (response.Status == HttpStatusCode.OK)
+            {
+                return RedirectToAction("list", new { Id = model.CategoryId });
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (response.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", response.Message);
+                return RedirectToAction("list", new { Id = model.CategoryId });
+            }
+
+            /* If we got this far, something failed, redisplay form */
+                return RedirectToAction("list", new { Id = model.CategoryId });
+        }
+        #endregion
     }
 }

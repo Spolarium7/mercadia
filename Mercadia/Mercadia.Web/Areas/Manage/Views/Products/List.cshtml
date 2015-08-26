@@ -64,7 +64,8 @@
 
                         <img src="" alt="Product Image" id="imagePreview" style="width:200px;height:200px;" />
                         <div class="row">
-                            <input type="hidden" name="imageId" value="" />
+                            <input type="hidden" name="Id" value="" id="Id"/>
+                            <input type="hidden" name="CategoryId" value="@Model.CategoryId" id="CategoryId" />
                             <div class="top-margin">
                                 <input type="file" name="File" class="col-sm-11" style="margin-left:10px;margin-right:10px;border: 1px solid #ccc;border-radius: 4px;height: 34px;padding: 6px 12px;font-size: 14px;" />
                             </div>
@@ -86,7 +87,7 @@
 
     <script>
         function changePicPrompt(itemId, imageSrc) {
-            $('#imageId').val(itemId);
+            $('#Id').val(itemId);
             $('#imagePreview').attr('src', imageSrc);
             $('#mdlChangePic').modal('show');
         }

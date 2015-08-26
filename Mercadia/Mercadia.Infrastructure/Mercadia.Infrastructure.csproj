@@ -60,7 +60,12 @@
     <Compile Include="DTO\Categories\CategoryNameIdPairDto.cs" />
     <Compile Include="DTO\Categories\CategoryRequestDto.cs" />
     <Compile Include="DTO\Categories\CategoryResponseDto.cs" />
+    <Compile Include="DTO\Categories\SelCategoryResponseDto.cs" />
     <Compile Include="DTO\ChangeStatusDto.cs" />
+    <Compile Include="DTO\OrderItems\OrderItemRequestDto.cs" />
+    <Compile Include="DTO\OrderItems\OrderItemResponseDto.cs" />
+    <Compile Include="DTO\Orders\OrderRequestDto.cs" />
+    <Compile Include="DTO\Orders\OrderResponseDto.cs" />
     <Compile Include="DTO\Products\ProductResponseDto.cs" />
     <Compile Include="DTO\Products\ProductRequestDto.cs" />
     <Compile Include="DTO\Products\ProductUploadThumbnailRequestDto.cs" />

@@ -68,7 +68,7 @@ namespace Mercadia.Api.Controllers
         private void Upsert(StoreSetting setting)
         {
             StoreSetting editMe = db.StoreSettings
-                .Where(a => a.StoreId == setting.Id && a.GroupName == setting.GroupName && a.Key == setting.Key).FirstOrDefault();
+                .Where(a => a.StoreId == setting.StoreId && a.GroupName == setting.GroupName && a.Key == setting.Key).FirstOrDefault();
 
             if (editMe != null)
             {

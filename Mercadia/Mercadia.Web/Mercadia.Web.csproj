@@ -157,11 +157,13 @@
     <Compile Include="Areas\Manage\Controllers\StoresController.cs" />
     <Compile Include="Areas\Manage\Controllers\StoreSettingsController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
-    <Compile Include="Areas\Stores\StoresAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PaypalPaymentController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\StoreUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,8 +177,11 @@
     <Compile Include="ViewModels\Categories\CategoriesByStoreViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductChangeStatusViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductsListViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductUploadThumbnailViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel.cs" />
+    <Compile Include="ViewModels\Stores\CartItemViewModel.cs" />
     <Compile Include="ViewModels\Stores\PaypalAccountSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Stores\StoreMenuViewModel.cs" />
     <Compile Include="ViewModels\Stores\StoreUploadThumbnailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -350,7 +355,6 @@
     <Content Include="RecaptchaNet.Readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Stores\Views\web.config" />
     <Content Include="Content\Businessr\css\bootstrap-theme.css.map" />
     <Content Include="Content\Businessr\css\bootstrap.css.map" />
     <Content Include="Content\Businessr\fonts\fontawesome-webfont.eot" />
@@ -415,22 +419,28 @@
     <Content Include="Views\Account\EditProfile.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Shared\Businessr\_Layout.cshtml" />
+    <Content Include="Views\Businessr\Menu.cshtml" />
+    <Content Include="Views\Businessr\ShoppingCart.cshtml" />
+    <Content Include="Views\Shared\Businessr\_IndexLayout.cshtml" />
+    <Content Include="Views\Businessr\Login.cshtml" />
+    <Content Include="Views\Businessr\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Areas\Manage\Views\Shared\" />
     <Folder Include="Areas\Manage\Views\StoreSettings\" />
-    <Folder Include="Areas\Stores\Controllers\" />
-    <Folder Include="Areas\Stores\Models\" />
-    <Folder Include="Areas\Stores\Views\Shared\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Businessr\" />
     <Folder Include="Views\EElectronics\" />
     <Folder Include="Views\EShopper\" />
+    <Folder Include="Views\PaypalPayment\" />
+    <Folder Include="Views\Stores\" />
+    <Folder Include="Views\StoreUser\" />
+    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

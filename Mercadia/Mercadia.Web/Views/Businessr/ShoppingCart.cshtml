@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/Businessr/_Layout.cshtml";
+}
+
+<div id="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
+
+                <h2>Purchased Items</h2>
+            </div>
+        </div>
+        <div class="row row-feat">
+
+            <div class="col-md-6 feature-2-pic wow fadeInLeft">
+                <img src="@Mercadia.Web.Securities.WebUser.CurrentStore.ProfilePic" alt="image" class="img-responsive pull-right">
+            </div>
+            <div class="col-md-6 wow">
+                    <h4>Thank you!</h4>
+                    <p>Please take the time to review the following items in your shopping cart.</p>
+
+                    @{
+                        decimal total = 0;
+                        foreach (Mercadia.Web.ViewModels.Stores.CartItemViewModel item in Mercadia.Web.Securities.WebUser.ShoppingCart)
+                        {
+                            total = total + item.Price * item.Quantity;
+                            <p><strong>@item.Name</strong> @item.Price x @item.Quantity = P @(item.Price*item.Quantity)</p>
+                        }
+                    }            
+                <hr/>
+                <p><strong>Total</strong> @total</p>        
+                <div class="btn-section"><a href="~/store/checkout" class="btn-default">Proceed to payment</a></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

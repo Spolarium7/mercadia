@@ -22,7 +22,7 @@ namespace Mercadia.Api.Controllers
             Guid storeId = Guid.Parse(store);
             Guid categoryId = Guid.Parse(category);
 
-            var path = Url.Content("/content/images/products/");
+            var path = Url.Content("/productimages/render?file=");
 
             return db.Products
                 .Where(a => a.StoreId == storeId
@@ -47,7 +47,7 @@ namespace Mercadia.Api.Controllers
         {
             Guid idCompare = Guid.Parse(id);
 
-            var path = Url.Content("/content/images/products/");
+            var path = Url.Content("/productimages/render?file=");
 
             return db.Products
                 .Where(a => a.Id == idCompare)
@@ -146,10 +146,21 @@ namespace Mercadia.Api.Controllers
         [HttpPut, Route("ChangeProfilePic")]
         public string ChangeProfilePic(ProductUploadThumbnailRequestDto request)
         {
-            var filePath = this.CreateFolderIfNeeded(HttpContext.Current.Server.MapPath("~/Content/Images/Products"));
-            var fileName = request.Id + ".jpg";
+            var appDataPath = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            var path = Path.Combine(appDataPath, "Images/Products");
 
-            CleanFiles(request.Id.ToString());
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            var filename = string.Format("{0}.jpg", Guid.NewGuid().ToString().Replace("-", ""));
+
+            /* {company-id}/{user-id}/{filename} */
+            var filePath = Path.Combine(path, filename);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
 
             var bytes = Convert.FromBase64String(request.Image);
 
@@ -180,7 +191,7 @@ namespace Mercadia.Api.Controllers
                  .Where(a => a.Id == idCompare)
                  .FirstOrDefault();
 
-            product.ProfilePic = fileName;
+            product.ProfilePic = filename;
             db.SaveChanges();
 
             return product.Id.ToString();

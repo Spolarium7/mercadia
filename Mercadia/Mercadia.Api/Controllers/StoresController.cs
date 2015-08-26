@@ -20,7 +20,7 @@ namespace Mercadia.Api.Controllers
         {
             Guid idCompare = Guid.Parse(id);
 
-            var path = Url.Content("/content/images/stores/");
+            var path = Url.Content("/storeimages/render?file=");
 
             return db.Stores
                 .Where(a => a.Id == idCompare)
@@ -38,10 +38,56 @@ namespace Mercadia.Api.Controllers
                 }).FirstOrDefault();
         }
 
+        [HttpGet, Route("search/{keyword}")]
+        public List<StoreResponseDto> Search(string keyword)
+        {
+
+            var path = Url.Content("/storeimages/render?file=");
+
+            return db.Stores
+                .Where(a => a.Name.ToLower().Contains(keyword.ToLower()))
+                .Select(a => new StoreResponseDto()
+                {
+                    Name = a.Name,
+                    Address = a.Address,
+                    Description = a.Description,
+                    ProfilePic = path + a.ProfilePic,
+                    Template = a.Template,
+                    ZipCode = a.ZipCode,
+                    Id = a.Id,
+                    Status = a.Status,
+                    Timestamp = a.Timestamp
+                }).ToList();
+        }
+
+        [HttpGet, Route("findbyname/{name}")]
+        public StoreResponseDto FindByName(string name)
+        {
+
+            var path = Url.Content("/storeimages/render?file=");
+            var storeName = name.Replace("_", " ");
+
+
+            return db.Stores
+                .Where(a => a.Name.ToLower() == storeName.ToLower())
+                .Select(a => new StoreResponseDto()
+                {
+                    Name = a.Name,
+                    Address = a.Address,
+                    Description = a.Description,
+                    ProfilePic = path + a.ProfilePic,
+                    Template = a.Template,
+                    ZipCode = a.ZipCode,
+                    Id = a.Id,
+                    Status = a.Status,
+                    Timestamp = a.Timestamp
+                }).FirstOrDefault();
+        }
+
         [HttpGet, Route("list")]
         public List<StoreResponseDto> List()
         {
-            var path = Url.Content("/content/images/stores/");
+            var path = Url.Content("/storeimages/render?file=");
 
             return db.Stores
                 .Select(a => new StoreResponseDto()
@@ -63,7 +109,7 @@ namespace Mercadia.Api.Controllers
         {
             Guid idCompare = Guid.Parse(id);
 
-            var path = Url.Content("/content/images/stores/");
+            var path = Url.Content("/storeimages/render?file=");
 
             return db.Stores
                 .Where(a => a.StoreOwnerId == idCompare)    
@@ -91,7 +137,7 @@ namespace Mercadia.Api.Controllers
                 idsCompare.Add(idCompare);
             }
 
-            var path = Url.Content("/content/images/stores/");
+            var path = Url.Content("/storeimages/render?file=");
 
             return db.Stores
                 .Where(a => idsCompare.Contains(a.Id))
@@ -181,10 +227,21 @@ namespace Mercadia.Api.Controllers
         [HttpPut, Route("ChangeProfilePic")]
         public string ChangeProfilePic(StoreUploadThumbnailRequestDto request)
         {
-            var filePath = this.CreateFolderIfNeeded(HttpContext.Current.Server.MapPath("~/Content/Images/Stores"));
-            var fileName = request.Id + ".jpg";
+            var appDataPath = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            var path = Path.Combine(appDataPath, "Images/Stores");
 
-            CleanFiles(request.Id.ToString());
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            var filename = string.Format("{0}.jpg", Guid.NewGuid().ToString().Replace("-", ""));
+
+            /* {company-id}/{user-id}/{filename} */
+            var filePath = Path.Combine(path, filename);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
 
             var bytes = Convert.FromBase64String(request.Image);
 
@@ -215,7 +272,7 @@ namespace Mercadia.Api.Controllers
                  .Where(a => a.Id == idCompare)
                  .FirstOrDefault();
 
-            store.ProfilePic = fileName;
+            store.ProfilePic = filename;
             db.SaveChanges();
 
             return store.Id.ToString();

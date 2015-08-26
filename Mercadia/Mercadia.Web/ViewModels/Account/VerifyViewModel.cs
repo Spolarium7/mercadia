@@ -9,5 +9,6 @@ namespace Mercadia.Web.ViewModels.Account
     {
         public Guid Id { get; set; }
         public string VerificationCode { get; set; }
+        public string Redirect { get; set; }
     }
 }

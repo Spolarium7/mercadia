@@ -10,15 +10,24 @@ using System.Web.Mvc;
 
 namespace Mercadia.Web.Controllers
 {
+    [RoutePrefix("home")]
     public class HomeController : BaseController
     {
 
-        [AllowAnonymous]
-        public ActionResult Index()
+        [AllowAnonymous, Route("index/{keyword}")]
+        public ActionResult Index(string keyword)
         {
             StoresViewModel model = new StoresViewModel();
-            string featured = ConfigurationManager.AppSettings["FeaturedStores"];
-            var response = Get<List<StoreResponseDto>>("stores//listbyid//" + featured + "//");
+            var response = new Dto<List<StoreResponseDto>>();
+
+            if (keyword == null)
+            {
+                response = Get<List<StoreResponseDto>>("stores//list");
+            }
+            else
+            {
+                response = Get<List<StoreResponseDto>>("stores//search//" + keyword);
+            }
 
             /* Test RESULTS - OKAY */
             if (response.Status == HttpStatusCode.OK)
