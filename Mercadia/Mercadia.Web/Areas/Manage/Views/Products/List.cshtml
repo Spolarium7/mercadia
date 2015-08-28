@@ -18,7 +18,7 @@
             <th>&nbsp;</th>
             <th>Sku</th>
             <th>Name</th>
-            <th>Description</th>
+            <th style="max-width:250px;">Description</th>
             <th>Price</th>
             <th>Status</th>
             <th class="td-option">&nbsp;</th>
@@ -31,9 +31,9 @@
                 <td><p><img id="image_@item.Id" src="@item.ProfilePic" alt="@item.Name" style="width:25px;height:25px;" /></p></td>
                 <td><p>@item.Sku</p></td>
                 <td><p>@item.Name</p></td>
-                <td><p>@item.Description</p></td>
+                <td style="max-width:250px;"><p>@item.Description</p></td>
                 <td><p>@item.Price</p></td>
-                <td><p>@item.Status</p></td>>
+                <td><p>@item.Status</p></td>
                 <td class="td-option">
                     <div class="btn-group">
                         <a href="~/manage/products/update/@item.Id" title="edit"><span class="fa fa-pencil"></span></a>&nbsp;&nbsp;&nbsp;

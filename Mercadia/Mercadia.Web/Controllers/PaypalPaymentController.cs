@@ -1,4 +1,6 @@
-﻿using Mercadia.Infrastructure.DTO.Stores;
+﻿using Mercadia.Infrastructure.DTO.OrderItems;
+using Mercadia.Infrastructure.DTO.Orders;
+using Mercadia.Infrastructure.DTO.Stores;
 using Mercadia.Web.Securities;
 using Mercadia.Web.ViewModels.Stores;
 using Moolah;
@@ -7,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -14,7 +17,7 @@ namespace Mercadia.Web.Controllers
 {
     public class PaypalPaymentController : BaseController
     {
-        [AllowAnonymous]
+        [HttpGet, AllowAnonymous]
         public ActionResult CreatePayment()
         {
             var settings = Get<PaypalAccountSettingsDto>("storesettings//paypal//" + WebUser.CurrentStore.Id);
@@ -50,10 +53,87 @@ namespace Mercadia.Web.Controllers
             return RedirectPermanent(response.RedirectUrl);
         }
 
-
-        public ActionResult Confirm()
+        [HttpGet, AllowAnonymous]
+        public ActionResult Confirm(string token, string PayerID)
         {
-            return View();
+            ViewBag.Token = token;
+            ViewBag.OrderId = FinalizeTransaction(token);
+            return View(string.Format("../{0}/confirm", WebUser.CurrentStore.Template));
+        }
+
+
+        public string FinalizeTransaction(string token)
+        {
+            decimal totalPrice = 0;
+            foreach (CartItemViewModel cartItem in WebUser.ShoppingCart)
+            {
+                totalPrice = totalPrice + (cartItem.Price * cartItem.Quantity);
+            }
+
+            var orderId = Post<string>("orders", new OrderRequestDto
+            {
+                PayDate = DateTime.Now,
+                PaymentDetails = "Token: " + token,
+                PaymentReference = token,
+                PaymentStatus = Infrastructure.Enums.PaymentStatus.Paid,
+                StoreId = WebUser.CurrentStore.Id.ToString(),
+                StoreName = WebUser.CurrentStore.Name,
+                StoreOwnerId = WebUser.CurrentStore.StoreOwnerId.ToString(),
+                TaxDue = 0,
+                TotalDiscount = 0,
+                TotalPrice = totalPrice,
+                UserId = WebUser.CurrentUser.Id.ToString(),
+                UserName = WebUser.CurrentUser.FirstName + " " + WebUser.CurrentUser.LastName
+            });
+
+            /* Test RESULTS - OKAY */
+            if (orderId.Status == HttpStatusCode.OK)
+            {
+                SaveOrderItems(orderId.Data);
+                return orderId.Data;
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (orderId.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", orderId.Message);
+                return "";
+            }
+            return "";
+        }
+
+        private void SaveOrderItems(string orderId)
+        {
+            List<OrderItemRequestDto> items = new List<OrderItemRequestDto>();
+            foreach (CartItemViewModel cartItem in WebUser.ShoppingCart)
+            {
+                OrderItemRequestDto item = new OrderItemRequestDto();
+                item.ItemPrice = cartItem.Quantity * cartItem.Price;
+                item.OrderDate = DateTime.Now;
+                item.OrderId = orderId.ToString();
+                item.ProductId = cartItem.ProductId;
+                item.ProductName = cartItem.Name;
+                item.Quantity = cartItem.Quantity;
+                item.StoreId = WebUser.CurrentStore.Id.ToString();
+                item.StoreName = WebUser.CurrentStore.Name;
+                item.StoreOwnerId = WebUser.CurrentStore.StoreOwnerId;
+                item.UnitPrice = cartItem.Price;
+                item.UserId = WebUser.CurrentUser.Id.ToString();
+                item.UserName = WebUser.CurrentUser.FirstName + " " + WebUser.CurrentUser.LastName;
+                items.Add(item);
+            };
+
+            var tranId = Post<string>("orderitems", items);
+
+            /* Test RESULTS - OKAY */
+            if (tranId.Status == HttpStatusCode.OK)
+            {
+
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (tranId.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", tranId.Message);
+            }
         }
 
         private OrderDetails GetOrder()

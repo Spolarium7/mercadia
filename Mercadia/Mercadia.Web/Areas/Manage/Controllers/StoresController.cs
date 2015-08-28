@@ -1,4 +1,6 @@
-﻿using Mercadia.Infrastructure.DTO.Stores;
+﻿using Mercadia.Infrastructure.DTO.OrderItems;
+using Mercadia.Infrastructure.DTO.Orders;
+using Mercadia.Infrastructure.DTO.Stores;
 using Mercadia.Web.Controllers;
 using Mercadia.Web.Securities;
 using Mercadia.Web.ViewModels.Stores;
@@ -47,8 +49,101 @@ namespace Mercadia.Web.Areas.Manage.Controllers
         }
         #endregion
 
+        #region Dashboard
+        [HttpGet, Route("dashboard")]
+        public ActionResult Dashboard(string store)
+        {
+            List<OrderItemResponseDto> purchases = GetProducts(store);
+            Dictionary<string, int> products = new Dictionary<string, int>();
+            foreach(OrderItemResponseDto item in purchases)
+            {
+                if (products.ContainsKey(item.ProductName))
+                {
+                    products[item.ProductName] += item.Quantity;
+                }
+                else
+                {
+                    products.Add(item.ProductName, item.Quantity);
+                }
+            }
+
+            DashboardViewModel model = new DashboardViewModel();
+            model.Orders = GetOrders(store);
+            model.Products = purchases;
+            model.Store = GetStore(store);
+            model.GraphData = products;
+            return View(model);
+        }
+
+
+        private StoreResponseDto GetStore(string Id)
+        {
+            var response = Get<StoreResponseDto>("stores//" + Id);
+
+            /* Test RESULTS - OKAY */
+            if (response.Status == HttpStatusCode.OK)
+            {
+                StoreResponseDto store = new StoreResponseDto();
+                store.Name = response.Data.Name;
+                store.Address = response.Data.Address;
+                store.Description = response.Data.Description;
+                store.Id = response.Data.Id;
+                store.ZipCode = response.Data.ZipCode;
+                store.ProfilePic = response.Data.ProfilePic;
+                store.Template = response.Data.Template;
+                return store;
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (response.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", response.Message);
+                return new StoreResponseDto();
+            }
+
+            return new StoreResponseDto();
+        }
+        private List<OrderResponseDto> GetOrders(string Id)
+        {
+            var response = Get<List<OrderResponseDto>>("orders//bystore//" + Id);
+
+            /* Test RESULTS - OKAY */
+            if (response.Status == HttpStatusCode.OK)
+            {
+                return response.Data;
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (response.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", response.Message);
+                return new List<OrderResponseDto>();
+            }
+
+            return new List<OrderResponseDto>();
+        }
+
+
+        private List<OrderItemResponseDto> GetProducts(string Id)
+        {
+            var response = Get<List<OrderItemResponseDto>>("orderitems//" + Id);
+
+            /* Test RESULTS - OKAY */
+            if (response.Status == HttpStatusCode.OK)
+            {
+                return response.Data;
+            }
+            /* Test RESULTS - Api Validation Error */
+            else if (response.Status == HttpStatusCode.BadRequest)
+            {
+                this.ModelState.AddModelError("", response.Message);
+                return new List<OrderItemResponseDto>();
+            }
+
+            return new List<OrderItemResponseDto>();
+        }
+        #endregion
+
         #region Update
-        [HttpGet, Route("/{id}")]
+        [HttpGet, Route("update/{id}")]
         public ActionResult Update(string Id)
         {
 

@@ -1,4 +1,6 @@
 ﻿using Mercadia.Infrastructure.DTO.Categories;
+using Mercadia.Infrastructure.DTO.OrderItems;
+using Mercadia.Infrastructure.DTO.Orders;
 using Mercadia.Infrastructure.DTO.Products;
 using Mercadia.Infrastructure.DTO.Stores;
 using Mercadia.Web.Securities;
@@ -131,7 +133,7 @@ namespace Mercadia.Web.Controllers
         public ActionResult SelectCategory(string category)
         {
             ChooseCategory(category);
-            return RedirectToAction("Index");
+            return RedirectToAction("index", "store", new { store = WebUser.CurrentStore.Name.Replace(" ", "_") });
         }
 
 
@@ -205,21 +207,26 @@ namespace Mercadia.Web.Controllers
                 return RedirectToAction("login", "storeuser", new { redirect = "store/shoppingcart" });
             }
 
+            if (WebUser.ShoppingCart == null)
+            {
+                WebUser.ShoppingCart = new List<CartItemViewModel>();
+            }
+
             return View(string.Format("../{0}/shoppingcart", WebUser.CurrentStore.Template));
         }
 
-        [HttpGet]
-        public ActionResult Checkout()
-        {
-            return RedirectToAction("CreatePayment", "PaypalPayment");
-        }
+        //[HttpGet]
+        //public ActionResult Checkout()
+        //{
+        //    return RedirectToAction("CreatePayment", "PaypalPayment");
+        //}
 
 
         public ActionResult BackToMenu()
         {
             WebUser.ShoppingCart = new List<CartItemViewModel>();
             WebUser.CurrentCategory = null;
-            return RedirectToAction("index", "store");
+            return RedirectToAction("index", "store", new { store = WebUser.CurrentStore.Name.Replace(" ", "_") });
         }
 
         public ActionResult BackToMain()
@@ -229,11 +236,5 @@ namespace Mercadia.Web.Controllers
             WebUser.CurrentCategory = null;
             return RedirectToAction("index", "home");
         }
-
-
-        public void FinalizeTransaction()
-        {
-
-        } 
     }
 }

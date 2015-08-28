@@ -180,6 +180,7 @@
     <Compile Include="ViewModels\Products\ProductUploadThumbnailViewModel.cs" />
     <Compile Include="ViewModels\StoresViewModel.cs" />
     <Compile Include="ViewModels\Stores\CartItemViewModel.cs" />
+    <Compile Include="ViewModels\Stores\DashboardViewModel.cs" />
     <Compile Include="ViewModels\Stores\PaypalAccountSettingsViewModel.cs" />
     <Compile Include="ViewModels\Stores\StoreMenuViewModel.cs" />
     <Compile Include="ViewModels\Stores\StoreUploadThumbnailViewModel.cs" />
@@ -249,6 +250,7 @@
     <Content Include="Content\EElectronics\js\jquery.sticky.js" />
     <Content Include="Content\EElectronics\js\main.js" />
     <Content Include="Content\EElectronics\js\owl.carousel.min.js" />
+    <Content Include="Content\EElectronics\style.css" />
     <Content Include="Content\EShopper\css\animate.css" />
     <Content Include="Content\EShopper\css\bootstrap.min.css" />
     <Content Include="Content\EShopper\css\font-awesome.min.css" />
@@ -344,6 +346,20 @@
     <Content Include="Content\Main\js\jquery.js" />
     <Content Include="Content\Main\js\respond.min.js" />
     <Content Include="Content\Main\js\template.js" />
+    <Content Include="Content\plotily\api.css" />
+    <Content Include="Content\plotily\d3.v3.min.js" />
+    <Content Include="Content\plotily\demo-style.css" />
+    <Content Include="Content\plotily\demo.js" />
+    <Content Include="Content\plotily\developers.css" />
+    <Content Include="Content\plotily\errorbars.png" />
+    <Content Include="Content\plotily\font-awesome.min.css" />
+    <Content Include="Content\plotily\jquery-latest.js" />
+    <Content Include="Content\plotily\jsdocs.css" />
+    <Content Include="Content\plotily\plotly.min.js" />
+    <Content Include="Content\plotily\prettify.css" />
+    <Content Include="Content\plotily\prettify.min.js" />
+    <Content Include="Content\plotily\typedarray.js" />
+    <Content Include="Content\plotily\underscore.min.js" />
     <Content Include="Content\Stores\default.png" />
     <Content Include="Content\Stores\Featured1\logo.jpg" />
     <Content Include="Content\Stores\templates\businessr.png" />
@@ -384,6 +400,7 @@
     <Content Include="Areas\Manage\Views\Products\List.cshtml" />
     <Content Include="Areas\Manage\Views\Products\Add.cshtml" />
     <Content Include="Areas\Manage\Views\Products\Update.cshtml" />
+    <Content Include="Areas\Manage\Views\Stores\Dashboard.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -396,7 +413,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -425,6 +444,17 @@
     <Content Include="Views\Shared\Businessr\_IndexLayout.cshtml" />
     <Content Include="Views\Businessr\Login.cshtml" />
     <Content Include="Views\Businessr\Confirm.cshtml" />
+    <Content Include="Views\Shared\_CenterLayout_graph.cshtml" />
+    <Content Include="Views\Shared\EElectronics\_Layout.cshtml" />
+    <Content Include="Views\EElectronics\Menu.cshtml" />
+    <Content Include="Views\EElectronics\ShoppingCart.cshtml" />
+    <Content Include="Views\EElectronics\Login.cshtml" />
+    <Content Include="Views\EElectronics\Confirm.cshtml" />
+    <Content Include="Views\Shared\EShopper\_Layout.cshtml" />
+    <Content Include="Views\EShopper\Menu.cshtml" />
+    <Content Include="Views\EShopper\Login.cshtml" />
+    <Content Include="Views\EShopper\ShoppingCart.cshtml" />
+    <Content Include="Views\EShopper\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -435,8 +465,6 @@
     <Folder Include="Models\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\EElectronics\" />
-    <Folder Include="Views\EShopper\" />
     <Folder Include="Views\PaypalPayment\" />
     <Folder Include="Views\Stores\" />
     <Folder Include="Views\StoreUser\" />

@@ -19,7 +19,7 @@ else
                 <ul class="dropdown-menu">
                     @{
                         foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Mercadia.Web.Securities.WebUser.UserStores) { 
-                        <li><a href="~/stores/manage/@store.Id">@store.Name</a></li>
+                        <li><a href="~/manage/stores/dashboard?store=/@store.Id">@store.Name</a></li>
                         }
                     }
                     <li><a href="~/manage/stores/add">Create a store</a></li>

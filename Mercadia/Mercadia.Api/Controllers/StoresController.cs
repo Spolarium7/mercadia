@@ -34,7 +34,8 @@ namespace Mercadia.Api.Controllers
                     ZipCode = a.ZipCode,
                     Id = a.Id,
                     Status = a.Status,
-                    Timestamp = a.Timestamp
+                    Timestamp = a.Timestamp,
+                    StoreOwnerId = a.StoreOwnerId.ToString()
                 }).FirstOrDefault();
         }
 
@@ -80,7 +81,8 @@ namespace Mercadia.Api.Controllers
                     ZipCode = a.ZipCode,
                     Id = a.Id,
                     Status = a.Status,
-                    Timestamp = a.Timestamp
+                    Timestamp = a.Timestamp,
+                    StoreOwnerId = a.StoreOwnerId.ToString()
                 }).FirstOrDefault();
         }
 

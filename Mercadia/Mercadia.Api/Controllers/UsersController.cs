@@ -207,24 +207,26 @@ namespace Mercadia.Api.Controllers
         {
             var user = db.Users.Where(a => a.Email.ToLower() == request.Email.ToLower()).FirstOrDefault();
 
-            if (BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
+            if (user != null)
             {
-                user.NoOfLoginRetries = 0;
-                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-            }
-            else
-            {
-                user.NoOfLoginRetries = user.NoOfLoginRetries + 1;
-                if (user.NoOfLoginRetries >= 3 && (user.Status == UserStatus.Active || user.Status == UserStatus.Unverified))
+                if (BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
                 {
-                    user.Status = UserStatus.Locked;
+                    user.NoOfLoginRetries = 0;
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
                 }
-                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                user = null;
+                else
+                {
+                    user.NoOfLoginRetries = user.NoOfLoginRetries + 1;
+                    if (user.NoOfLoginRetries >= 3 && (user.Status == UserStatus.Active || user.Status == UserStatus.Unverified))
+                    {
+                        user.Status = UserStatus.Locked;
+                    }
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    user = null;
+                }
             }
-
 
             if (user == null)
             {

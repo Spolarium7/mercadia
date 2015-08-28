@@ -120,7 +120,8 @@ namespace Mercadia.Api.Controllers
 
             if (db.Categories
                 .Where(a => a.StoreId == guidStoreId
-                && a.Name.ToLower() == request.Name.ToLower()).Count() > 0)
+                && a.Name.ToLower() == request.Name.ToLower()
+                && a.Id != idCompare).Count() > 0)
             {
                 ThrowError("Category name already in use");
                 return null;

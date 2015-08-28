@@ -14,5 +14,7 @@ namespace Mercadia.Infrastructure.DTO.Stores
         public string Address { get; set; }
         public string ZipCode { get; set; }
         public string Template { get; set; }
+        public string StoreOwnerId { get; set; }
+        public string StoreOwnerName { get; set; }
     }
 }

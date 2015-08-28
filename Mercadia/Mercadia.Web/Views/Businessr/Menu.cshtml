@@ -62,20 +62,20 @@
                         foreach (Mercadia.Infrastructure.DTO.Products.ProductResponseDto product in Model.Products.Skip(i * 2))
                         {
                                 <div class="col-sm-4 feat-list">
-                                    <a href="#" onclick="openProductModal('@product.Id'); e.preventDefault();">
+                                    <a href="#" onclick="openProductModal('@product.Id');" class="openModal">
                                         <img src="@product.ProfilePic" alt="@product.Name" style="width:150px;height:150px;" />
+                                    </a>
                                         <div class="inner">
-                                            <h4>@product.Name</h4>
-                                            <p>Php @product.Price</p>
+                                            <a href="#" onclick="openProductModal('@product.Id');" class="openModal">
+                                                <h4>@product.Name</h4>
+                                                <p>Php @product.Price</p>
+                                            </a>
                                             <p class="contact-right">
                                                 <input type="text" id="Qty_@product.Id" style="width:30px;" />
                                                 <input type="button" class="btn btn-success" value="Add to Cart" onclick="addToCart('@product.Id','@product.Name','@product.Price');preventDefault()" />
                                             </p>
-                                            <p>
-                                                @product.Description
-                                            </p>
                                         </div>
-                                    </a>
+
                                 </div>
                         }
                         }
@@ -98,9 +98,9 @@
                 <div class="modal-body">
                     <div class="col-lg-12">
                         <div class="col-sm-4 feat-list">
-                            <img src="a" alt="" style="width:250px;height:250px;" id="modalProductImage"/>
+                            <img src="a" alt="" style="max-width:250px;" id="modalProductImage"/>
                         </div>
-                        <div class="col-sm-2 feat-list col-lg-offset-2">
+                        <div class="col-sm-6 feat-list col-lg-offset-2">
                             <div class="inner">
                                 <h4 id="modalProductName"></h4>
                                 <p id="modalProductPrice"></p>
@@ -122,26 +122,39 @@
 
 @section scripts{
     <script>
-        function addToCart(id, name, price) {
-            var model = {
-                ProductId: id,
-                Name: name, 
-                Price: price,
-                Quantity: $("#Qty_" + id).val()
-            }
+        $(document).ready(function () {
+            var a = $(".openModal");
+            a.click(function (e) {
 
-            $.ajax({
-                url: "@Url.Content("~/store/addtocart")",
-                dataType: "json",
-                data: model,
-                type: "POST",
-                async: false
-            }).done(function (obj) {
+                e.preventDefault();
 
-            }).fail(function (obj) {
-                
-                //location.reload();
             });
+        });
+
+        function addToCart(id, name, price) {
+            //alert(parseFloat($("#Qty_" + id).val()) > 0);
+            if (parseFloat($("#Qty_" + id).val()) > 0) {
+
+                var model = {
+                    ProductId: id,
+                    Name: name,
+                    Price: price,
+                    Quantity: $("#Qty_" + id).val()
+                }
+
+                $.ajax({
+                    url: "@Url.Content("~/store/addtocart")",
+                    dataType: "json",
+                    data: model,
+                    type: "POST",
+                    async: false
+                }).done(function (obj) {
+                    location.reload();
+                }).fail(function (obj) {
+
+                    //location.reload();
+                });
+            }
         }
 
 

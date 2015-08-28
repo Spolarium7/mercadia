@@ -11,10 +11,10 @@
             <div class="col-md-10 col-md-offset-1 text-center">
 
                 <!-- /.logo -->
-                <div class="logo wow fadeInDown" style="margin-top: 50px"> <a href=""><img src="@Url.Content("~/content/businessr/images/logo.png")" alt="logo">></a></div>
+                <div class="logo wow fadeInDown" style="margin-top: 50px"> <a href="">@Mercadia.Web.Securities.WebUser.CurrentStore.Name</a></div>
                 <!-- /.main title -->
                 <h1 class="wow fadeInUp" style="margin-bottom: 50px">
-                    Thank You!
+                    Thank You for purchasing!
                 </h1>
 
                 @{
@@ -27,6 +27,8 @@
                 }
                 <hr />
                 <p><strong>Total</strong> @total</p>  
+                <p><strong>Payment token:</strong> @ViewBag.Token</p> 
+                <p><strong>Order Id:</strong> @ViewBag.OrderId</p>  
                 <br><br><br>
                 <div class="head-btn wow fadeInLeft">
                     <a href="@Url.Content("~/store/backtomain")" class="btn-primary">Back to Mercadia</a>
