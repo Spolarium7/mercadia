@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F49278A2-5636-4110-A11A-E50F5E4382B5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mercadia.Store</RootNamespace>
+    <AssemblyName>Mercadia.Store</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\..\devcity.ember\DevCity.Ember.Web.Dashboard\bin\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\..\devcity.ember\DevCity.Ember.Web.Dashboard\bin\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moolah">
+      <HintPath>..\packages\Moolah.0.7.4.62\lib\net40\Moolah.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha.Web">
+      <HintPath>..\Mercadia.Web\bin\Recaptcha.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\PaypalPaymentController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\StoreUserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Securities\InPrivate.cs" />
+    <Compile Include="Securities\WebUser.cs" />
+    <Compile Include="ViewModels\Account\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\VerifyViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoriesByStoreViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductChangeStatusViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductsListViewModel.cs" />
+    <Compile Include="ViewModels\Products\ProductUploadThumbnailViewModel.cs" />
+    <Compile Include="ViewModels\StoresViewModel.cs" />
+    <Compile Include="ViewModels\Stores\CartItemViewModel.cs" />
+    <Compile Include="ViewModels\Stores\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\Stores\PaypalAccountSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Stores\StoreMenuViewModel.cs" />
+    <Compile Include="ViewModels\Stores\StoreUploadThumbnailViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Businessr\css\animate.css" />
+    <Content Include="Content\Businessr\css\animate.min.css" />
+    <Content Include="Content\Businessr\css\bootstrap-theme.css" />
+    <Content Include="Content\Businessr\css\bootstrap-theme.min.css" />
+    <Content Include="Content\Businessr\css\bootstrap.css" />
+    <Content Include="Content\Businessr\css\bootstrap.min.css" />
+    <Content Include="Content\Businessr\css\font-awesome.css" />
+    <Content Include="Content\Businessr\css\font-awesome.min.css" />
+    <Content Include="Content\Businessr\css\owl.carousel.css" />
+    <Content Include="Content\Businessr\css\owl.theme.css" />
+    <Content Include="Content\Businessr\css\styles.css" />
+    <Content Include="Content\Businessr\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Businessr\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Businessr\fonts\icon-7-stroke\css\helper.css" />
+    <Content Include="Content\Businessr\fonts\icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="Content\Businessr\fonts\icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Content\Businessr\images\bg.jpg" />
+    <Content Include="Content\Businessr\images\bg2.jpg" />
+    <Content Include="Content\Businessr\images\client.jpg" />
+    <Content Include="Content\Businessr\images\client2.jpg" />
+    <Content Include="Content\Businessr\images\client3.jpg" />
+    <Content Include="Content\Businessr\images\feature2-image.jpg" />
+    <Content Include="Content\Businessr\images\img.jpg" />
+    <Content Include="Content\Businessr\images\img1.jpg" />
+    <Content Include="Content\Businessr\images\img2.jpg" />
+    <Content Include="Content\Businessr\images\img3.jpg" />
+    <Content Include="Content\Businessr\images\img4.jpg" />
+    <Content Include="Content\Businessr\images\img5.jpg" />
+    <Content Include="Content\Businessr\images\img6.jpg" />
+    <Content Include="Content\Businessr\images\img7.jpg" />
+    <Content Include="Content\Businessr\images\img8.jpg" />
+    <Content Include="Content\Businessr\images\logo.png" />
+    <Content Include="Content\Businessr\js\bootstrap.js" />
+    <Content Include="Content\Businessr\js\bootstrap.min.js" />
+    <Content Include="Content\Businessr\js\custom.js" />
+    <Content Include="Content\Businessr\js\ekko-lightbox-min.js" />
+    <Content Include="Content\Businessr\js\jquery.js" />
+    <Content Include="Content\Businessr\js\jquery.sticky.js" />
+    <Content Include="Content\Businessr\js\owl.carousel.min.js" />
+    <Content Include="Content\Businessr\js\wow.min.js" />
+    <Content Include="Content\EElectronics\css\owl.carousel.css" />
+    <Content Include="Content\EElectronics\css\responsive.css" />
+    <Content Include="Content\EElectronics\img\crossword.png" />
+    <Content Include="Content\EElectronics\img\product-1.jpg" />
+    <Content Include="Content\EElectronics\img\product-2.jpg" />
+    <Content Include="Content\EElectronics\img\product-3.jpg" />
+    <Content Include="Content\EElectronics\img\product-4.jpg" />
+    <Content Include="Content\EElectronics\img\product-5.jpg" />
+    <Content Include="Content\EElectronics\img\product-6.jpg" />
+    <Content Include="Content\EElectronics\img\product-thumb-1.jpg" />
+    <Content Include="Content\EElectronics\img\product-thumb-2.jpg" />
+    <Content Include="Content\EElectronics\img\product-thumb-3.jpg" />
+    <Content Include="Content\EElectronics\img\product-thumb-4.jpg" />
+    <Content Include="Content\EElectronics\img\services_logo__1.jpg" />
+    <Content Include="Content\EElectronics\img\services_logo__2.jpg" />
+    <Content Include="Content\EElectronics\img\services_logo__3.jpg" />
+    <Content Include="Content\EElectronics\img\services_logo__4.jpg" />
+    <Content Include="Content\EElectronics\img\slide-1.jpg" />
+    <Content Include="Content\EElectronics\img\slide-2.jpg" />
+    <Content Include="Content\EElectronics\img\slide-3.jpg" />
+    <Content Include="Content\EElectronics\js\jquery.easing.1.3.min.js" />
+    <Content Include="Content\EElectronics\js\jquery.sticky.js" />
+    <Content Include="Content\EElectronics\js\main.js" />
+    <Content Include="Content\EElectronics\js\owl.carousel.min.js" />
+    <Content Include="Content\EElectronics\style.css" />
+    <Content Include="Content\EShopper\css\animate.css" />
+    <Content Include="Content\EShopper\css\bootstrap.min.css" />
+    <Content Include="Content\EShopper\css\font-awesome.min.css" />
+    <Content Include="Content\EShopper\css\main.css" />
+    <Content Include="Content\EShopper\css\prettyPhoto.css" />
+    <Content Include="Content\EShopper\css\price-range.css" />
+    <Content Include="Content\EShopper\css\responsive.css" />
+    <Content Include="Content\EShopper\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\EShopper\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\EShopper\images\404\404.png" />
+    <Content Include="Content\EShopper\images\blog\blog-one.jpg" />
+    <Content Include="Content\EShopper\images\blog\blog-three.jpg" />
+    <Content Include="Content\EShopper\images\blog\blog-two.jpg" />
+    <Content Include="Content\EShopper\images\blog\man-four.jpg" />
+    <Content Include="Content\EShopper\images\blog\man-one.jpg" />
+    <Content Include="Content\EShopper\images\blog\man-three.jpg" />
+    <Content Include="Content\EShopper\images\blog\man-two.jpg" />
+    <Content Include="Content\EShopper\images\blog\socials.png" />
+    <Content Include="Content\EShopper\images\cart\one.png" />
+    <Content Include="Content\EShopper\images\cart\three.png" />
+    <Content Include="Content\EShopper\images\cart\two.png" />
+    <Content Include="Content\EShopper\images\home\bg_border.png" />
+    <Content Include="Content\EShopper\images\home\gallery1.jpg" />
+    <Content Include="Content\EShopper\images\home\gallery2.jpg" />
+    <Content Include="Content\EShopper\images\home\gallery3.jpg" />
+    <Content Include="Content\EShopper\images\home\gallery4.jpg" />
+    <Content Include="Content\EShopper\images\home\girl1.jpg" />
+    <Content Include="Content\EShopper\images\home\girl2.jpg" />
+    <Content Include="Content\EShopper\images\home\girl3.jpg" />
+    <Content Include="Content\EShopper\images\home\iframe1.png" />
+    <Content Include="Content\EShopper\images\home\iframe2.png" />
+    <Content Include="Content\EShopper\images\home\iframe3.png" />
+    <Content Include="Content\EShopper\images\home\iframe4.png" />
+    <Content Include="Content\EShopper\images\home\logo.png" />
+    <Content Include="Content\EShopper\images\home\map.png" />
+    <Content Include="Content\EShopper\images\home\new.png" />
+    <Content Include="Content\EShopper\images\home\partner1.png" />
+    <Content Include="Content\EShopper\images\home\partner2.png" />
+    <Content Include="Content\EShopper\images\home\partner3.png" />
+    <Content Include="Content\EShopper\images\home\partner4.png" />
+    <Content Include="Content\EShopper\images\home\pricing.png" />
+    <Content Include="Content\EShopper\images\home\product1.jpg" />
+    <Content Include="Content\EShopper\images\home\product2.jpg" />
+    <Content Include="Content\EShopper\images\home\product3.jpg" />
+    <Content Include="Content\EShopper\images\home\product4.jpg" />
+    <Content Include="Content\EShopper\images\home\product5.jpg" />
+    <Content Include="Content\EShopper\images\home\product6.jpg" />
+    <Content Include="Content\EShopper\images\home\recommend1.jpg" />
+    <Content Include="Content\EShopper\images\home\recommend2.jpg" />
+    <Content Include="Content\EShopper\images\home\recommend3.jpg" />
+    <Content Include="Content\EShopper\images\home\sale.png" />
+    <Content Include="Content\EShopper\images\home\searchicon.png" />
+    <Content Include="Content\EShopper\images\home\shipping.jpg" />
+    <Content Include="Content\EShopper\images\product-details\1.jpg" />
+    <Content Include="Content\EShopper\images\product-details\new.jpg" />
+    <Content Include="Content\EShopper\images\product-details\rating.png" />
+    <Content Include="Content\EShopper\images\product-details\share.png" />
+    <Content Include="Content\EShopper\images\product-details\similar1.jpg" />
+    <Content Include="Content\EShopper\images\product-details\similar2.jpg" />
+    <Content Include="Content\EShopper\images\product-details\similar3.jpg" />
+    <Content Include="Content\EShopper\images\shop\advertisement.jpg" />
+    <Content Include="Content\EShopper\images\shop\product10.jpg" />
+    <Content Include="Content\EShopper\images\shop\product11.jpg" />
+    <Content Include="Content\EShopper\images\shop\product12.jpg" />
+    <Content Include="Content\EShopper\images\shop\product7.jpg" />
+    <Content Include="Content\EShopper\images\shop\product8.jpg" />
+    <Content Include="Content\EShopper\images\shop\product9.jpg" />
+    <Content Include="Content\EShopper\js\bootstrap.min.js" />
+    <Content Include="Content\EShopper\js\contact.js" />
+    <Content Include="Content\EShopper\js\gmaps.js" />
+    <Content Include="Content\EShopper\js\html5shiv.js" />
+    <Content Include="Content\EShopper\js\jquery.js" />
+    <Content Include="Content\EShopper\js\jquery.prettyPhoto.js" />
+    <Content Include="Content\EShopper\js\jquery.scrollUp.min.js" />
+    <Content Include="Content\EShopper\js\main.js" />
+    <Content Include="Content\EShopper\js\price-range.js" />
+    <Content Include="Content\Main\css\bootstrap-theme.css" />
+    <Content Include="Content\Main\css\bootstrap.min.css" />
+    <Content Include="Content\Main\css\font-awesome.min.css" />
+    <Content Include="Content\Main\css\main.css" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Main\images\1.jpg" />
+    <Content Include="Content\Main\images\2.jpg" />
+    <Content Include="Content\Main\images\bg_header.jpg" />
+    <Content Include="Content\Main\images\gt_favicon.png" />
+    <Content Include="Content\Main\images\logo.png" />
+    <Content Include="Content\Main\images\mac.jpg" />
+    <Content Include="Content\Main\js\bootstrap.min.js" />
+    <Content Include="Content\Main\js\google-map.js" />
+    <Content Include="Content\Main\js\headroom.min.js" />
+    <Content Include="Content\Main\js\html5shiv.js" />
+    <Content Include="Content\Main\js\jQuery.headroom.min.js" />
+    <Content Include="Content\Main\js\jquery.js" />
+    <Content Include="Content\Main\js\respond.min.js" />
+    <Content Include="Content\Main\js\template.js" />
+    <Content Include="Content\plotily\api.css" />
+    <Content Include="Content\plotily\d3.v3.min.js" />
+    <Content Include="Content\plotily\demo-style.css" />
+    <Content Include="Content\plotily\demo.js" />
+    <Content Include="Content\plotily\developers.css" />
+    <Content Include="Content\plotily\errorbars.png" />
+    <Content Include="Content\plotily\font-awesome.min.css" />
+    <Content Include="Content\plotily\jquery-latest.js" />
+    <Content Include="Content\plotily\jsdocs.css" />
+    <Content Include="Content\plotily\plotly.min.js" />
+    <Content Include="Content\plotily\prettify.css" />
+    <Content Include="Content\plotily\prettify.min.js" />
+    <Content Include="Content\plotily\typedarray.js" />
+    <Content Include="Content\plotily\underscore.min.js" />
+    <Content Include="Content\Stores\default.png" />
+    <Content Include="Content\Stores\Featured1\logo.jpg" />
+    <Content Include="Content\Stores\templates\businessr.png" />
+    <Content Include="Content\Stores\templates\eelectronics.png" />
+    <Content Include="Content\Stores\templates\eshopper.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Businessr\css\bootstrap-theme.css.map" />
+    <Content Include="Content\Businessr\css\bootstrap.css.map" />
+    <Content Include="Content\Businessr\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Businessr\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Businessr\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Businessr\fonts\FontAwesome.otf" />
+    <Content Include="Content\Businessr\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Businessr\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Businessr\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Businessr\fonts\icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Content\Businessr\fonts\icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Content\Businessr\fonts\icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Content\EShopper\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\EShopper\fonts\FontAwesome.otf" />
+    <Content Include="Content\EShopper\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Main\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Main\fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Businessr\Confirm.cshtml" />
+    <Content Include="Views\Businessr\Login.cshtml" />
+    <Content Include="Views\Businessr\Menu.cshtml" />
+    <Content Include="Views\Businessr\ShoppingCart.cshtml" />
+    <Content Include="Views\EElectronics\Confirm.cshtml" />
+    <Content Include="Views\EElectronics\Login.cshtml" />
+    <Content Include="Views\EElectronics\Menu.cshtml" />
+    <Content Include="Views\EElectronics\ShoppingCart.cshtml" />
+    <Content Include="Views\EShopper\Confirm.cshtml" />
+    <Content Include="Views\EShopper\Login.cshtml" />
+    <Content Include="Views\EShopper\Menu.cshtml" />
+    <Content Include="Views\EShopper\ShoppingCart.cshtml" />
+    <Content Include="Views\Shared\Businessr\_IndexLayout.cshtml" />
+    <Content Include="Views\Shared\Businessr\_Layout.cshtml" />
+    <Content Include="Views\Shared\EElectronics\_Layout.cshtml" />
+    <Content Include="Views\Shared\EShopper\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mercadia.Infrastructure\Mercadia.Infrastructure.csproj">
+      <Project>{86043e6e-c59f-44d0-9251-d3cca3236dbe}</Project>
+      <Name>Mercadia.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>23853</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:23853/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

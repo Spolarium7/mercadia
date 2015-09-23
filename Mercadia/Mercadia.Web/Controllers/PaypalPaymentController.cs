@@ -17,7 +17,8 @@ namespace Mercadia.Web.Controllers
 {
     public class PaypalPaymentController : BaseController
     {
-        [HttpGet, AllowAnonymous]
+
+        [HttpGet]
         public ActionResult CreatePayment()
         {
             var settings = Get<PaypalAccountSettingsDto>("storesettings//paypal//" + WebUser.CurrentStore.Id);

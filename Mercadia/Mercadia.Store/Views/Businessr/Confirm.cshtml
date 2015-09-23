@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/Businessr/_Layout.cshtml";
+}
+
+<div class="fullscreen landing parallax" style="background-image:url('@Url.Content("~/content/businessr/images/bg2.jpg")');" data-img-width="2000" data-img-height="1333" data-diff="100">
+
+    <div class="overlay">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 text-center">
+
+                <!-- /.logo -->
+                <div class="logo wow fadeInDown" style="margin-top: 50px"> <a href="">@Mercadia.Store.Securities.WebUser.CurrentStore.Name</a></div>
+                <!-- /.main title -->
+                <h1 class="wow fadeInUp" style="margin-bottom: 50px">
+                    Thank You for purchasing!
+                </h1>
+
+                @{
+                    decimal total = 0;
+                    foreach (Mercadia.Store.ViewModels.Stores.CartItemViewModel item in Mercadia.Store.Securities.WebUser.ShoppingCart)
+                    {
+                        total = total + item.Price * item.Quantity;
+                        <p><strong>@item.Name</strong> @item.Price x @item.Quantity = P @(item.Price * item.Quantity)</p>
+                    }
+                }
+                <hr />
+                <p><strong>Total</strong> @total</p>  
+                <p><strong>Payment token:</strong> @ViewBag.Token</p> 
+                <p><strong>Order Id:</strong> @ViewBag.OrderId</p>  
+                <br><br><br>
+                <div class="head-btn wow fadeInLeft">
+                    <a href="@Url.Content("~/store/backtomenu")" class="btn-default">Back</a>
+                </div>
+                <br><br><br>
+            </div>
+        </div>
+    </div>
+</div>
+

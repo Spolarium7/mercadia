@@ -1,0 +1,117 @@
+﻿@model Mercadia.Store.ViewModels.Stores.StoreMenuViewModel
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/EShopper/_Layout.cshtml";
+}
+
+@section headerbottom{
+<div class="header-bottom">
+    <!--header-bottom-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="mainmenu pull-left">
+                    <ul class="nav navbar-nav collapse navbar-collapse">
+                        @{
+                            foreach (Mercadia.Infrastructure.DTO.Categories.SelCategoryResponseDto category in Model.Categories)
+                            {
+                                <li><a href="~/store/selectcategory?category=@category.Id">@category.Name</a></li>
+                            }
+                        }
+                        <li><a href="~/store/shoppingcart">Shopping Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/header-bottom-->
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Products</h2>
+                    @{
+                    foreach (Mercadia.Infrastructure.DTO.Products.ProductResponseDto product in Model.Products)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center" style="height:500px;">
+                                        <img src="@product.ProfilePic" alt="@product.Name" style="max-width:150px" />
+                                        <h2>@product.Price</h2>
+                                        <p>@product.Name</p>
+
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <img src="@product.ProfilePic" alt="@product.Name" style="max-width:250px" />
+                                            <h2>@product.Price</h2>
+                                            <p>@product.Name</p>
+                                            <p>@product.Description</p>
+                                            <input type="text" id="Qty_@product.Id" style="width:30px;position:relative;top:-13px;height:35px;" />
+                                            <input type="button" class="btn btn-default add-to-cart" value="Add to Cart" onclick="addToCart('@product.Id','@product.Name','@product.Price');preventDefault()" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    }
+                </div><!--features_items-->
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var a = $(".openModal");
+            a.click(function (e) {
+
+                e.preventDefault();
+
+            });
+        });
+
+        function addToCart(id, name, price) {
+            //alert(parseFloat($("#Qty_" + id).val()) > 0);
+            if (parseFloat($("#Qty_" + id).val()) > 0) {
+
+                var model = {
+                    ProductId: id,
+                    Name: name,
+                    Price: price,
+                    Quantity: $("#Qty_" + id).val()
+                }
+
+                $.ajax({
+                    url: "@Url.Content("~/store/addtocart")",
+                    dataType: "json",
+                    data: model,
+                    type: "POST",
+                    async: false
+                }).done(function (obj) {
+                    location.reload();
+                }).fail(function (obj) {
+
+                    //location.reload();
+                });
+            }
+        }
+
+
+    </script>
+}

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/EElectronics/_Layout.cshtml";
+}
+
+<div class="slider-area">
+    <div class="zigzag-bottom"></div>
+    <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
+
+        <div class="slide-bulletz">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ol class="carousel-indicators slide-indicators">
+                            <li data-target="#slide-list" data-slide-to="0" class="active"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="single-slide">
+                    <div class="slide-bg slide-one"></div>
+                    <div class="slide-text-wrapper">
+                        <div class="slide-text">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-6">
+                                        <div class="slide-content">
+                                            <h2>Thank you for purchasing</h2>
+                                            @{
+                                                decimal total = 0;
+                                                foreach (Mercadia.Store.ViewModels.Stores.CartItemViewModel item in Mercadia.Store.Securities.WebUser.ShoppingCart)
+                                                {
+                                                    total = total + item.Price * item.Quantity;
+                                                    <p><strong>@item.Name</strong> @item.Price x @item.Quantity = P @(item.Price * item.Quantity)</p>
+                                                }
+                                            }
+                                            <hr />
+                                            <p><strong>Total</strong> @total</p>
+                                            <p><strong>Payment token:</strong> @ViewBag.Token</p>
+                                            <p><strong>Order Id:</strong> @ViewBag.OrderId</p>
+                                            <br><br><br>
+                                            <a href="@Url.Content("~/store/backtomenu")" class="readmore">Back</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End slider area -->
+

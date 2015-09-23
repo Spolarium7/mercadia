@@ -1,0 +1,31 @@
+﻿@model Mercadia.Infrastructure.DTO.Users.UserLoginRequestDto
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/EElectronics/_Layout.cshtml";
+}
+
+<div class="footer-top-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="footer-about-us">
+                    <h2>Login</h2>
+                    <p>Please login to continue</p>
+                    <div class="newsletter-form">
+                        @using (Html.BeginForm("Login", "StoreUser", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "contact-form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary("", new { @class = "text-danger", style = "margin-right:10px;" })
+                            @Html.TextBoxFor(a => a.Email, new { placeholder = "Email", style = "margin-right:10px;" })
+                               @Html.PasswordFor(a => a.Password, new { placeholder = "Password", style = "margin-right:10px;" })
+                               <input type="submit" name="submit" value="Submit"/>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
