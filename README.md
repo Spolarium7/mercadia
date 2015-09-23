@@ -10,4 +10,5 @@
 
 * Goshen M. Jimenez
 * Jerreck Navalta
+* Eugene Perez
 * Deepika
