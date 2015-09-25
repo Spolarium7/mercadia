@@ -1,0 +1,43 @@
+﻿@model Mercadia.Infrastructure.DTO.Users.UserRequestDto
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_CenterLayout.cshtml";
+}
+
+<header class="page-header">
+    <h1 class="page-title">Mercadia Login</h1>
+</header>
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3 class="thin text-center">Login to Mercadia</h3>
+             <p class="text-center text-muted"> Not a member yet? <a href="~/account/register">Sign up</a>. </p>
+            <hr>
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="top-margin">
+                    <label>Email Address <span class="text-danger">*</span></label>
+                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control", placeholder = "Email" })
+                </div>
+                <div class="top-margin">
+                    <label>Password <span class="text-danger">*</span></label>
+                    @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
+                </div>
+                
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <p class="text-muted"> Did you <a href="~/account/forgotpassword"> Forget your password?</a></p>
+                    </div>
+                    <div class="col-lg-4 text-right">
+                        <button class="btn btn-action" type="submit">Login</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

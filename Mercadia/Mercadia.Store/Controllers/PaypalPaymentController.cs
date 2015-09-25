@@ -1,10 +1,12 @@
 ﻿using Mercadia.Infrastructure.DTO.OrderItems;
 using Mercadia.Infrastructure.DTO.Orders;
 using Mercadia.Infrastructure.DTO.Stores;
+using Mercadia.Infrastructure.DTO.Users;
 using Mercadia.Store.Securities;
 using Mercadia.Store.ViewModels.Stores;
 using Moolah;
 using Moolah.PayPal;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,9 +19,63 @@ namespace Mercadia.Store.Controllers
 {
     public class PaypalPaymentController : BaseController
     {
+        public void SaveSession()
+        {
+            HttpCookie userCookie = new HttpCookie("userCookie");
+            HttpCookie storeCookie = new HttpCookie("storeCookie");
+            HttpCookie categoryCookie = new HttpCookie("categoryCookie");
+            HttpCookie cartCookie = new HttpCookie("cartCookie");
+
+            DateTime now = DateTime.Now;
+
+            // Set the cookie value.
+            userCookie.Value = JsonConvert.SerializeObject(WebUser.CurrentUser);
+            storeCookie.Value = JsonConvert.SerializeObject(WebUser.CurrentStore);
+            categoryCookie.Value = JsonConvert.SerializeObject(WebUser.CurrentCategory);
+            cartCookie.Value = JsonConvert.SerializeObject(WebUser.ShoppingCart);
+
+            // Set the cookie expiration date.
+            userCookie.Expires = now.AddHours(1);
+            storeCookie.Expires = now.AddHours(1);
+            categoryCookie.Expires = now.AddHours(1);
+            cartCookie.Expires = now.AddHours(1);
+
+
+            userCookie.Name = "userCookie";
+            storeCookie.Name = "storeCookie";
+            categoryCookie.Name = "categoryCookie";
+            cartCookie.Name = "cartCookie";
+
+            Response.Cookies.Add(userCookie);
+            Response.Cookies.Add(storeCookie);
+            Response.Cookies.Add(categoryCookie);
+            Response.Cookies.Add(cartCookie);
+        }
+
+        public void RecoverSession()
+        {
+            if (WebUser.CurrentUser == null) { 
+                WebUser.CurrentUser = JsonConvert.DeserializeObject<UserResponseDto>(Request.Cookies["userCookie"].ToString());
+            }
+            if (WebUser.CurrentCategory == null)
+            {
+                WebUser.CurrentCategory = JsonConvert.DeserializeObject<string>(Request.Cookies["categoryCookie"].ToString());
+            }
+            if (WebUser.CurrentStore == null)
+            {
+                WebUser.CurrentStore = JsonConvert.DeserializeObject<StoreResponseDto>(Request.Cookies["storeCookie"].ToString());
+            }
+            if (WebUser.ShoppingCart == null)
+            {
+                WebUser.ShoppingCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(Request.Cookies["cartCookie"].ToString());
+            }
+        }
+
         [HttpGet, AllowAnonymous]
         public ActionResult CreatePayment()
         {
+
+            SaveSession();
             var settings = Get<PaypalAccountSettingsDto>("storesettings//paypal//" + WebUser.CurrentStore.Id);
 
             // TODO - Store Settings
@@ -56,6 +112,7 @@ namespace Mercadia.Store.Controllers
         [HttpGet, AllowAnonymous]
         public ActionResult Confirm(string token, string PayerID)
         {
+            RecoverSession();
             ViewBag.Token = token;
             ViewBag.OrderId = FinalizeTransaction(token);
             return View(string.Format("../{0}/confirm", WebUser.CurrentStore.Template));

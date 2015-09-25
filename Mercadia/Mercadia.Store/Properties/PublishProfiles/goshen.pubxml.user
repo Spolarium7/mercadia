@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Goshen\Documents\mercadiaStoreDeploy</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>07/01/2015 13:57:17</publishTime>
+    </File>
+    <File Include="bin/BCrypt.Net.dll">
+      <publishTime>07/10/2015 14:50:37</publishTime>
+    </File>
+    <File Include="bin/Mercadia.Infrastructure.dll">
+      <publishTime>09/25/2015 22:14:03</publishTime>
+    </File>
+    <File Include="bin/Mercadia.Store.dll">
+      <publishTime>09/25/2015 22:15:01</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>09/24/2015 14:33:21</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>09/24/2015 14:33:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/Moolah.dll">
+      <publishTime>08/19/2015 22:31:36</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/01/2015 13:57:12</publishTime>
+    </File>
+    <File Include="bin/NLog.dll">
+      <publishTime>08/19/2015 22:31:36</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>09/24/2015 14:33:37</publishTime>
+    </File>
+    <File Include="bin/Recaptcha.Web.dll">
+      <publishTime>08/17/2015 12:40:19</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>09/23/2015 20:48:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/01/2015 13:57:13</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/01/2015 13:57:17</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/animate.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/animate.min.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/bootstrap-theme.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/bootstrap-theme.css.map">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/bootstrap-theme.min.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/bootstrap.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/bootstrap.css.map">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/bootstrap.min.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/font-awesome.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/font-awesome.min.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/owl.carousel.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/owl.theme.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/css/styles.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/fontawesome-webfont.eot">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/fontawesome-webfont.svg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/fontawesome-webfont.ttf">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/fontawesome-webfont.woff">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/FontAwesome.otf">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/icon-7-stroke/css/helper.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/icon-7-stroke/css/pe-icon-7-stroke.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/icon-7-stroke/fonts/Pe-icon-7-stroke.eot">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/icon-7-stroke/fonts/Pe-icon-7-stroke.svg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/icon-7-stroke/fonts/Pe-icon-7-stroke.ttf">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/fonts/icon-7-stroke/fonts/Pe-icon-7-stroke.woff">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/bg.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/bg2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/client.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/client2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/client3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/feature2-image.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img4.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img5.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img6.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img7.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/img8.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/images/logo.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/bootstrap.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/bootstrap.min.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/custom.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/ekko-lightbox-min.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/jquery.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/jquery.sticky.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/owl.carousel.min.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/Businessr/js/wow.min.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/css/owl.carousel.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/css/responsive.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/crossword.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-4.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-5.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-6.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-thumb-1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-thumb-2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-thumb-3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/product-thumb-4.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/services_logo__1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/services_logo__2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/services_logo__3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/services_logo__4.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/slide-1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/slide-2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/img/slide-3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/js/jquery.easing.1.3.min.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/js/jquery.sticky.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/js/main.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/js/owl.carousel.min.js">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EElectronics/style.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/animate.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/bootstrap.min.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/font-awesome.min.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/main.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/prettyPhoto.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/price-range.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/css/responsive.css">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/fonts/fontawesome-webfont.svg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/fonts/fontawesome-webfont.woff">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/fonts/FontAwesome.otf">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/404/404.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/blog-one.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/blog-three.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/blog-two.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/man-four.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/man-one.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/man-three.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/man-two.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/blog/socials.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/cart/one.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/cart/three.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/cart/two.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/bg_border.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/gallery1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/gallery2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/gallery3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/gallery4.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/girl1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/girl2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/girl3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/iframe1.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/iframe2.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/iframe3.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/iframe4.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/logo.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/map.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/new.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/partner1.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/partner2.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/partner3.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/partner4.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/pricing.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/product1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/product2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/product3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/product4.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/product5.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/product6.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/recommend1.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/recommend2.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/recommend3.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/sale.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/searchicon.png">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/home/shipping.jpg">
+      <publishTime>09/23/2015 20:56:41</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/1.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/new.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/rating.png">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/share.png">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/similar1.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/similar2.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/product-details/similar3.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/advertisement.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/product10.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/product11.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/product12.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/product7.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/product8.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/images/shop/product9.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/bootstrap.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/contact.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/gmaps.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/html5shiv.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/jquery.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/jquery.prettyPhoto.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/jquery.scrollUp.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/main.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/EShopper/js/price-range.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/css/bootstrap-theme.css">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/css/bootstrap.min.css">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/css/font-awesome.min.css">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/css/main.css">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/fonts/fontawesome-webfont.eot">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/fonts/fontawesome-webfont.svg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/fonts/fontawesome-webfont.ttf">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/fonts/fontawesome-webfont.woff">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/fonts/fontawesome-webfont.woff2">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/fonts/FontAwesome.otf">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/images/1.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/images/2.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/images/bg_header.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/images/gt_favicon.png">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/images/logo.png">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/images/mac.jpg">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/bootstrap.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/google-map.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/headroom.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/html5shiv.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/jQuery.headroom.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/jquery.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/respond.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/Main/js/template.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/plotily/api.css">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/plotily/d3.v3.min.js">
+      <publishTime>09/23/2015 20:56:42</publishTime>
+    </File>
+    <File Include="Content/plotily/demo-style.css">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/demo.js">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/developers.css">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/errorbars.png">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/font-awesome.min.css">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/jquery-latest.js">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/jsdocs.css">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/plotly.min.js">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/prettify.css">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/prettify.min.js">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/typedarray.js">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/plotily/underscore.min.js">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/Stores/default.png">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/Stores/Featured1/logo.jpg">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/Stores/templates/businessr.png">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/Stores/templates/eelectronics.png">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="Content/Stores/templates/eshopper.png">
+      <publishTime>09/23/2015 20:56:43</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/23/2015 20:53:31</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>09/23/2015 20:31:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>09/23/2015 20:31:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>09/23/2015 20:31:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>09/23/2015 20:31:44</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>09/23/2015 20:31:44</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>09/23/2015 20:31:43</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>09/23/2015 20:31:44</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>09/23/2015 20:31:44</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>09/23/2015 20:56:46</publishTime>
+    </File>
+    <File Include="Views/Businessr/Confirm.cshtml">
+      <publishTime>09/23/2015 22:05:37</publishTime>
+    </File>
+    <File Include="Views/Businessr/Login.cshtml">
+      <publishTime>09/23/2015 22:06:04</publishTime>
+    </File>
+    <File Include="Views/Businessr/Menu.cshtml">
+      <publishTime>09/23/2015 21:25:12</publishTime>
+    </File>
+    <File Include="Views/Businessr/ShoppingCart.cshtml">
+      <publishTime>09/23/2015 22:07:08</publishTime>
+    </File>
+    <File Include="Views/EElectronics/Confirm.cshtml">
+      <publishTime>09/23/2015 22:12:21</publishTime>
+    </File>
+    <File Include="Views/EElectronics/Login.cshtml">
+      <publishTime>09/23/2015 20:58:42</publishTime>
+    </File>
+    <File Include="Views/EElectronics/Menu.cshtml">
+      <publishTime>09/23/2015 21:07:53</publishTime>
+    </File>
+    <File Include="Views/EElectronics/ShoppingCart.cshtml">
+      <publishTime>09/23/2015 22:13:17</publishTime>
+    </File>
+    <File Include="Views/EShopper/Confirm.cshtml">
+      <publishTime>09/23/2015 22:13:51</publishTime>
+    </File>
+    <File Include="Views/EShopper/Login.cshtml">
+      <publishTime>09/23/2015 20:58:43</publishTime>
+    </File>
+    <File Include="Views/EShopper/Menu.cshtml">
+      <publishTime>09/23/2015 21:08:00</publishTime>
+    </File>
+    <File Include="Views/EShopper/ShoppingCart.cshtml">
+      <publishTime>09/23/2015 20:58:43</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>09/23/2015 21:07:21</publishTime>
+    </File>
+    <File Include="Views/Shared/Businessr/_IndexLayout.cshtml">
+      <publishTime>09/23/2015 21:59:44</publishTime>
+    </File>
+    <File Include="Views/Shared/Businessr/_Layout.cshtml">
+      <publishTime>09/23/2015 22:01:36</publishTime>
+    </File>
+    <File Include="Views/Shared/EElectronics/_Layout.cshtml">
+      <publishTime>09/23/2015 22:02:57</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="Views/Shared/EShopper/_Layout.cshtml">
+      <publishTime>09/23/2015 22:04:08</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>09/23/2015 20:31:24</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/25/2015 22:15:05</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -401,6 +401,7 @@
     <Content Include="Areas\Manage\Views\Products\Add.cshtml" />
     <Content Include="Areas\Manage\Views\Products\Update.cshtml" />
     <Content Include="Areas\Manage\Views\Stores\Dashboard.cshtml" />
+    <None Include="Properties\PublishProfiles\goshen.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

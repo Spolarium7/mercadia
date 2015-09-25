@@ -1,0 +1,52 @@
+﻿@model Mercadia.Infrastructure.DTO.Users.UserLoginRequestDto
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Businessr/_Layout.cshtml";
+}
+
+<div id="contact">
+    <div class="contact fullscreen parallax" style="background-image:url('@Url.Content("~/content/businessr/images/bg2.jpg")');" data-img-width="2000" data-img-height="1334" data-diff="100">
+        <div class="overlay">
+            <div class="container">
+                <div class="row contact-row">
+
+                    <div class="col-sm-5 contact-left wow fadeInUp">
+                        <h2>@Mercadia.Web.Securities.WebUser.CurrentStore.Name</h2>
+                        <ul class="ul-address">
+                            <li>
+                                <i class="pe-7s-map-marker"></i>@Mercadia.Web.Securities.WebUser.CurrentStore.Address<br/>
+                                @Mercadia.Web.Securities.WebUser.CurrentStore.ZipCode
+                            </li>
+                            <li>
+                                <i class="pe-7s-look"></i>@Mercadia.Web.Securities.WebUser.CurrentStore.Description
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-sm-7 contact-right">
+                        <div class="form-group">
+                            <span style="color:#ffffff;">Please login to continue</span>
+                        </div>
+                        @using (Html.BeginForm("Login", "StoreUser", FormMethod.Post, new { @class = "form-horizontal", role = "form", id = "contact-form" }))
+                        {
+                            <div class="form-group">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">                    
+                                @Html.TextBoxFor(a => a.Email, new { @class = "form-control  wow fadeInUp", placeholder = "Email" })
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(a => a.Password, new { @class = "form-control  wow fadeInUp", placeholder = "Password" })
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Submit" class="btn btn-success wow fadeInUp" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/EShopper/_Layout.cshtml";
+}
+
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description"></td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        decimal total = 0;
+                        foreach (Mercadia.Web.ViewModels.Stores.CartItemViewModel item in Mercadia.Web.Securities.WebUser.ShoppingCart)
+                        {
+                            total = total + item.Price * item.Quantity;
+                    <tr>
+                        <td class="cart_product">
+
+                        </td>
+                        <td class="cart_description">
+                            <h4>@item.Name</h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>@item.Price</p>
+                        </td>
+                        <td class="cart_quantity">
+                            <p>@item.Quantity</p>
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">@(item.Quantity * item.Price)</p>
+                        </td>
+                    </tr>
+                        }
+                    }   
+                </tbody>
+            </table>
+
+            <a href="~/paypalpayment/createpayment" class="btn btn-default">Proceed to Payment</a>
+        </div>
+    </div>
+</section> <!--/#cart_items-->
+

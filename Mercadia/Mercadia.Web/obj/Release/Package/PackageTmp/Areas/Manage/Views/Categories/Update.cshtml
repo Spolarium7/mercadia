@@ -1,0 +1,44 @@
+﻿@model Mercadia.Infrastructure.DTO.Categories.CategoryRequestDto
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_RightLayout.cshtml";
+}
+
+<h2>Update Category</h2>
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            @using (Html.BeginForm("Update", "Categories", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="top-margin">
+                    @Html.HiddenFor(a => a.Id)
+                    @Html.HiddenFor(a => a.StoreId)
+                    @Html.HiddenFor(a => a.ParentId)
+                    <label>Store Name</label>
+                    @Html.TextBoxFor(a => a.Name, new { @class = "form-control", placeholder = "Store Name" })
+                </div>
+                <div class="top-margin">
+                    <label>Description</label>
+                    @Html.TextAreaFor(a => a.Description, new { @class = "form-control", placeholder = "Description" })
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <label class="checkbox">
+
+                        </label>
+                    </div>
+                    <div class="col-lg-4 text-right">
+                        <button class="btn btn-action" type="submit">Update category</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+

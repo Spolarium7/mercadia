@@ -1,0 +1,17 @@
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Mercadia.Infrastructure.dll.config
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Mercadia.Infrastructure.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Mercadia.Infrastructure.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Antlr3.Runtime.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\BCrypt.Net.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\EntityFramework.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Newtonsoft.Json.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Antlr3.Runtime.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\BCrypt.Net.pdb
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\BCrypt.Net.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\EntityFramework.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\bin\Release\Newtonsoft.Json.xml
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\obj\Release\Mercadia.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\obj\Release\Mercadia.Infrastructure.dll
+C:\Users\Goshen\Documents\goshen.mercadia\Mercadia\Mercadia.Infrastructure\obj\Release\Mercadia.Infrastructure.pdb

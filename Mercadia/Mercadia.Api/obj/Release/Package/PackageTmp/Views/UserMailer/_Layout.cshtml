@@ -1,0 +1,34 @@
+﻿@using Mvc.Mailer
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invitation</title>
+</head>
+<body style="background:#DDD; margin:0; padding:20px 0;">
+    <a href="#" target="_blank">
+        <p style="margin:0 auto; width:600px;"><img src="http://i59.tinypic.com/rk6f0p.jpg" width="600" height="140" /></p>
+    </a>
+    <table style="background:#FFF; width:600px; margin:0 auto;">
+        @RenderBody()
+        <tr>
+            <td>
+                <h4 style="font-family:Segoe, 'Segoe UI', 'Arial', sans-serif; margin:30px 30px 0;">Kind Regards,</h4>
+                <p style="margin:0 30px 30px;">Team Mercadia</p>
+                <hr>
+            </td>
+        </tr>
+        <tr>
+            <td><p style="text-align:center; font-family:Segoe, 'Segoe UI', 'Arial', sans-serif; margin:0; font-size:12px; color:#999">&copy; @DateTime.Now.Year Team Mercadia | All Rights Reserved</p></td>         
+        </tr>
+        <tr>
+            <td><p style="text-align:center; font-family:Segoe, 'Segoe UI', 'Arial', sans-serif; margin:0; font-size:12px; color:#999">Goshen Jimenez | Jerreck Navalta | Deepika | Eugene Perez</p></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;"><a href="#" style="font-family:Segoe, 'Segoe UI', 'Arial', sans-serif;color:#BBB; text-decoration:none; font-size:12px;">Unsubscribe from our mailing list</a></td>
+        </tr>
+    </table>
+</body>
+</html>
+

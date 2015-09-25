@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Confirm";
+    Layout = "~/Views/Shared/EShopper/_Layout.cshtml";
+}
+
+<section id="cart_items">
+    <div class="container">
+        <a href="@Url.Content("~/store/backtomain")" class="btn btn-primary">Back to Mercadia</a>
+        <a href="@Url.Content("~/store/backtomenu")" class="btn btn-primary">Back to @(Mercadia.Web.Securities.WebUser.CurrentStore.Name)</a>
+        <div class="step-one">
+            <h2 class="heading">Thanks for Shopping with us</h2>
+        </div>
+        <div class="checkout-options">
+            <h3>Order details</h3>
+            <p>Products purchased</p>
+            <ul class="nav">
+                @{
+                    decimal total = 0;
+                    foreach (Mercadia.Web.ViewModels.Stores.CartItemViewModel item in Mercadia.Web.Securities.WebUser.ShoppingCart)
+                    {
+                        total = total + item.Price * item.Quantity;
+                        <p><strong>@item.Name</strong> @item.Price x @item.Quantity = P @(item.Price * item.Quantity)</p>
+                    }
+                }
+            </ul>
+        </div><!--/checkout-options-->
+        <div class="checkout-options">
+            <h3>Payment details</h3>
+            <p>&nbsp;</p>
+            <p><strong>Total</strong> @total</p>
+            <p><strong>Payment token:</strong> @ViewBag.Token</p>
+            <p><strong>Order Id:</strong> @ViewBag.OrderId</p>
+        </div><!--/checkout-options-->
+
+
+
+    </div>
+</section> <!--/#cart_items-->

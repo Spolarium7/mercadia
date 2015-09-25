@@ -365,6 +365,7 @@
     <Content Include="Content\Main\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Main\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\Main\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\goshen.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

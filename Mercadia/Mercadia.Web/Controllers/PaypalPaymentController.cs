@@ -1,10 +1,12 @@
 ﻿using Mercadia.Infrastructure.DTO.OrderItems;
 using Mercadia.Infrastructure.DTO.Orders;
 using Mercadia.Infrastructure.DTO.Stores;
+using Mercadia.Infrastructure.DTO.Users;
 using Mercadia.Web.Securities;
 using Mercadia.Web.ViewModels.Stores;
 using Moolah;
 using Moolah.PayPal;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,10 +19,40 @@ namespace Mercadia.Web.Controllers
 {
     public class PaypalPaymentController : BaseController
     {
+        public void SaveSession()
+        {
+            HttpCookie userCookie = new HttpCookie("userCookie");
+            HttpCookie storeCookie = new HttpCookie("storeCookie");
+            HttpCookie categoryCookie = new HttpCookie("categoryCookie");
+            HttpCookie cartCookie = new HttpCookie("cartCookie");
+
+            DateTime now = DateTime.Now;
+
+            // Set the cookie value.
+            userCookie.Value = JsonConvert.SerializeObject(WebUser.CurrentUser);
+            storeCookie.Value = JsonConvert.SerializeObject(WebUser.CurrentStore);
+            categoryCookie.Value = JsonConvert.SerializeObject(WebUser.CurrentCategory);
+            cartCookie.Value = JsonConvert.SerializeObject(WebUser.ShoppingCart);
+
+            // Set the cookie expiration date.
+            userCookie.Expires = now.AddHours(1);
+            storeCookie.Expires = now.AddHours(1);
+            categoryCookie.Expires = now.AddHours(1);
+            cartCookie.Expires = now.AddHours(1);
+        }
+
+        public void RecoverSession()
+        {
+            WebUser.CurrentUser = JsonConvert.DeserializeObject<UserResponseDto>(Request.Cookies["userCookie"].ToString());
+            WebUser.CurrentCategory = JsonConvert.DeserializeObject<string>(Request.Cookies["categoryCookie"].ToString());
+            WebUser.CurrentStore = JsonConvert.DeserializeObject<StoreResponseDto>(Request.Cookies["storeCookie"].ToString());
+            WebUser.ShoppingCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(Request.Cookies["cartCookie"].ToString());
+        }
 
         [HttpGet]
         public ActionResult CreatePayment()
         {
+            SaveSession();
             var settings = Get<PaypalAccountSettingsDto>("storesettings//paypal//" + WebUser.CurrentStore.Id);
 
             // TODO - Store Settings
@@ -57,6 +89,7 @@ namespace Mercadia.Web.Controllers
         [HttpGet, AllowAnonymous]
         public ActionResult Confirm(string token, string PayerID)
         {
+            RecoverSession();
             ViewBag.Token = token;
             ViewBag.OrderId = FinalizeTransaction(token);
             return View(string.Format("../{0}/confirm", WebUser.CurrentStore.Template));

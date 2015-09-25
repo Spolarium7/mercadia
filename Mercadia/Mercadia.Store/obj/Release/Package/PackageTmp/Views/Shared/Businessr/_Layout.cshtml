@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>@((Mercadia.Store.Securities.WebUser.CurrentStore != null ? Mercadia.Store.Securities.WebUser.CurrentStore.Name : ""))</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- CSS Files -->
+    <link href="~/content/businessr/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/content/businessr/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/content/businessr/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="~/content/businessr/css/animate.css" rel="stylesheet" media="screen">
+    <link href="~/content/businessr/css/owl.theme.css" rel="stylesheet">
+    <link href="~/content/businessr/css/owl.carousel.css" rel="stylesheet">
+
+    <link href="~/content/businessr/css/styles.css" rel="stylesheet" media="screen">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body data-spy="scroll" data-target="#navbar-scroll">
+
+    <div id="top"></div>
+    <div id="menu">
+        <nav class="navbar-wrapper navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-themers">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand site-name" href="#top" style="color:#ffffff"><h2>@((Mercadia.Store.Securities.WebUser.CurrentStore != null ? Mercadia.Store.Securities.WebUser.CurrentStore.Name : ""))</h2></a>
+                </div>
+
+                <div id="navbar-scroll" class="collapse navbar-collapse navbar-themers navbar-right">
+                    <ul class="nav navbar-nav">
+                        @{if (Mercadia.Store.Securities.WebUser.CurrentUser != null)
+                        {
+                            <li><a href="~/storeuser/logoff">Logout</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="~/storeuser/forgotpassword">Forgot Password</a></li>                              
+                            <li><a href="~/storeuser/register">Register</a></li>
+                            <li><a href="~/storeuser/login">Login</a></li>
+                        }
+                        }
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    @RenderBody()
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <div class="social text-center">
+                    <ul>
+                        <li><a class="wow fadeInUp" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="wow fadeInUp" href="https://www.facebook.com/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="wow fadeInUp" href="https://plus.google.com/" data-wow-delay="0.4s"><i class="fa fa-google-plus"></i></a></li>
+                    </ul>
+                </div>
+                <div class="text-center wow fadeInUp" style="font-size: 14px;">@((Mercadia.Store.Securities.WebUser.CurrentStore != null ? Mercadia.Store.Securities.WebUser.CurrentStore.Name : "")) powered by <a href="www.mercadia.com">Mercadia</a></div>
+                <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Businessr 2015 - Template by <a href="http://www.webthemez.com">Webthemez</a></div>
+                <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- javascript files -->
+    <script src="~/content/businessr/js/jquery.js"></script>
+    <script src="~/content/businessr/js/bootstrap.min.js"></script>
+    <script src="~/content/businessr/js/custom.js"></script>
+    <script src="~/content/businessr/js/jquery.sticky.js"></script>
+    <script src="~/content/businessr/js/wow.min.js"></script>
+    <script src="~/content/businessr/js/owl.carousel.min.js"></script>
+    <script src="~/content/businessr/js/ekko-lightbox-min.js"></script>
+    <script type="text/javascript">
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event) { event.preventDefault(); $(this).ekkoLightbox(); });
+    </script>
+    <script>
+        new WOW().init();
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

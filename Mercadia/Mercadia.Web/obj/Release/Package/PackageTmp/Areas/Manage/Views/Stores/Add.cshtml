@@ -1,0 +1,65 @@
+﻿@model Mercadia.Infrastructure.DTO.Stores.StoreRequestDto
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LeftLayout.cshtml";
+}
+<header class="page-header">
+    <h1 class="page-title">Create Store</h1>
+</header>
+
+<div class="col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            @using (Html.BeginForm("Add", "Stores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="top-margin">
+                    <label>Store Name</label>
+                    @Html.TextBoxFor(a => a.Name, new { @class = "form-control", placeholder = "Store Name" })
+                </div>
+                <div class="top-margin">
+                    <label>Description</label>
+                    @Html.TextAreaFor(a => a.Description, new { @class = "form-control", placeholder = "Description" })
+                </div>
+                <hr>
+                <div class="top-margin">
+                    <label>Address</label>
+                    @Html.TextAreaFor(a => a.Address, new { @class = "form-control", placeholder = "Address" })
+                </div>
+
+                <div class="top-margin">
+                    <label>ZipCode<span class="text-danger">*</span></label>
+                    @Html.TextBoxFor(a => a.ZipCode, new { @class = "form-control", placeholder = "ZipCode" })
+                    @Html.Hidden("StoreOwnerId", Mercadia.Web.Securities.WebUser.CurrentUser.Id)
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <label class="checkbox">
+
+                        </label>
+                    </div>
+                    <div class="col-lg-4 text-right">
+                        <button class="btn btn-action" type="submit">Create store</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    @section Sidebar{
+        <h3 class="thin ">Your Stores</h3>
+        @foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Mercadia.Web.Securities.WebUser.UserStores)
+        {
+            <div class="col-md-6 highlight">
+                <a href="~/manage/stores/@store.Id" style="text-decoration:none;">
+                    <div class="h-caption"><img src="@store.ProfilePic" alt="@store.Name" style="width:100px;height:100px;" /><h4>@store.Name</h4></div>
+                    <div class="h-caption"><a class="btn-link" href="~/manage/stores/@store.Id">MANAGE</a></div>
+                </a>
+            </div>
+        }
+}

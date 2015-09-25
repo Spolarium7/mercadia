@@ -1,0 +1,39 @@
+﻿
+
+@if (Mercadia.Web.Securities.WebUser.CurrentUser == null) { 
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav pull-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a class="btn" href="~/account/register">SIGN UP</a></li>
+        <li><a class="btn" href="~/account/login">SIGN IN</a></li>
+    </ul>
+</div><!--/.nav-collapse -->
+}
+else
+{
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage your Stores <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    @{
+                        foreach (Mercadia.Infrastructure.DTO.Stores.StoreResponseDto store in Mercadia.Web.Securities.WebUser.UserStores) { 
+                        <li><a href="~/manage/stores/dashboard?store=/@store.Id">@store.Name</a></li>
+                        }
+                    }
+                    <li><a href="~/manage/stores/add">Create a store</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">@Mercadia.Web.Securities.WebUser.CurrentUser.FirstName @Mercadia.Web.Securities.WebUser.CurrentUser.LastName <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="~/account/editprofile">Edit Profile</a></li>
+                    <li><a href="~/account/changepassword">Change Password</a></li>
+                    <li><a href="~/account/logoff">Sign out</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div><!--/.nav-collapse -->
+}

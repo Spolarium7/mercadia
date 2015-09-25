@@ -1,0 +1,181 @@
+﻿@model Mercadia.Web.ViewModels.Stores.StoreMenuViewModel
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/Businessr/_IndexLayout.cshtml";
+}
+
+    <!-- NAVIGATION -->
+<div id="menu">
+    <nav class="navbar-wrapper navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-themers">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand site-name" href="#top" style="color:#ffffff"><h2>@((Mercadia.Web.Securities.WebUser.CurrentStore != null ? Mercadia.Web.Securities.WebUser.CurrentStore.Name : ""))</h2></a>
+            </div>
+
+            <div id="navbar-scroll" class="collapse navbar-collapse navbar-themers navbar-right">
+                <ul class="nav navbar-nav">
+                    @{
+                        foreach (Mercadia.Infrastructure.DTO.Categories.SelCategoryResponseDto category in Model.Categories)
+                        {
+                            <li><a href="~/store/selectcategory?category=@category.Id">@category.Name</a></li>
+                        }
+                    }
+                    <li><a href="~/store/shoppingcart">Shopping Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+<div id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
+                <h2>Our Products</h2>
+            </div>
+        </div>
+        
+
+        @{
+                float itemsPerRow = 4;
+                float totalItems = (float)(Model.Products.Count);
+                float rws = (totalItems / itemsPerRow);
+                var rows = Math.Ceiling((decimal)rws);
+
+                if (rows == 1)
+                {
+                    rows = 2;
+                }
+
+                for (int i = 0; i < (rows - 1); i++)
+                {
+                    <div class="row row-feat">
+                        <div class="col-md-12">
+                       @{
+                        foreach (Mercadia.Infrastructure.DTO.Products.ProductResponseDto product in Model.Products.Skip(i * 2))
+                        {
+                                <div class="col-sm-4 feat-list">
+                                    <a href="#" onclick="openProductModal('@product.Id');" class="openModal">
+                                        <img src="@product.ProfilePic" alt="@product.Name" style="width:150px;height:150px;" />
+                                    </a>
+                                        <div class="inner">
+                                            <a href="#" onclick="openProductModal('@product.Id');" class="openModal">
+                                                <h4>@product.Name</h4>
+                                                <p>Php @product.Price</p>
+                                            </a>
+                                            <p class="contact-right">
+                                                <input type="text" id="Qty_@product.Id" style="width:30px;" />
+                                                <input type="button" class="btn btn-success" value="Add to Cart" onclick="addToCart('@product.Id','@product.Name','@product.Price');preventDefault()" />
+                                            </p>
+                                        </div>
+
+                                </div>
+                        }
+                        }
+                        </div>
+                    </div><!-- /row  -->
+                }
+            }
+
+        </div>
+
+</div>
+<div class="modal fade" id="mdlProductDetails" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Product Details</h4>
+            </div>
+            <form class="form-horizontal" role="form">
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <div class="col-sm-4 feat-list">
+                            <img src="a" alt="" style="max-width:250px;" id="modalProductImage"/>
+                        </div>
+                        <div class="col-sm-6 feat-list col-lg-offset-2">
+                            <div class="inner">
+                                <h4 id="modalProductName"></h4>
+                                <p id="modalProductPrice"></p>
+                                <p id="modalProductDescription">
+                                </p>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var a = $(".openModal");
+            a.click(function (e) {
+
+                e.preventDefault();
+
+            });
+        });
+
+        function addToCart(id, name, price) {
+            //alert(parseFloat($("#Qty_" + id).val()) > 0);
+            if (parseFloat($("#Qty_" + id).val()) > 0) {
+
+                var model = {
+                    ProductId: id,
+                    Name: name,
+                    Price: price,
+                    Quantity: $("#Qty_" + id).val()
+                }
+
+                $.ajax({
+                    url: "@Url.Content("~/store/addtocart")",
+                    dataType: "json",
+                    data: model,
+                    type: "POST",
+                    async: false
+                }).done(function (obj) {
+                    location.reload();
+                }).fail(function (obj) {
+
+                    //location.reload();
+                });
+            }
+        }
+
+
+        function openProductModal(id) {
+            //alert(id);
+            $.ajax({
+                url: "@Url.Content("~/store/product?id=")" + id,
+                    dataType: "json",
+                    type: "GET",
+                    async: false
+                }).done(function (obj) {
+                    //console.log(obj);
+                    $('#modalProductImage').attr("src", obj.ProfilePic);
+                    $('#modalProductImage').attr("alt", obj.Name);
+                    $('#modalProductName').html(obj.Name);
+                    $('#modalProductPrice').html(obj.Price);
+                    $('#modalProductDescription').html(obj.Description);
+                    $('#mdlProductDetails').modal('show');
+                }).fail(function (obj) {
+                    
+                });
+        }
+    </script>
+}

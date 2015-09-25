@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/EElectronics/_Layout.cshtml";
+}
+
+<div class="product-big-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-bit-title text-center">
+                    <h2>Shopping Cart</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="single-product-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <table cellspacing="0" class="shop_table cart">
+                <thead>
+                    <tr>
+                        <th class="product-name">Product</th>
+                        <th class="product-price">Price</th>
+                        <th class="product-quantity">Quantity</th>
+                        <th class="product-subtotal">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        decimal total = 0;
+                        foreach (Mercadia.Store.ViewModels.Stores.CartItemViewModel item in Mercadia.Store.Securities.WebUser.ShoppingCart)
+                        {
+                            total = total + item.Price * item.Quantity;
+                            <tr class="cart_item">
+                                <td class="product-name">
+                                    @item.Name
+                                </td>
+                                <td class="product-price">
+                                    <span class="amount">@item.Name</span>
+                                </td>
+                                <td class="product-quantity">
+                                    <span class="amount">@item.Quantity</span>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount">@(item.Quantity * item.Price)</span>
+                                </td>
+                            </tr>
+                        }
+                    }   
+                    
+                    <tr class="cart_item">
+                        <td colspan="2">
+                            <p><strong>Total</strong> @total</p>
+                        </td>
+                        <td colspan="2">
+                            <a href="~/paypalpayment/createpayment" class="add_to_cart_button">Proceed to payment</a>
+                        </td>
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
